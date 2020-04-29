@@ -43,6 +43,7 @@ function calculateTotal(){
         var test2 = quantityList[i].innerHTML.valueOf();
         console.log(test);
         console.log(test2);
+        console.log(newNum);
         num = num + newNum;
         console.log(num);
         console.log(newNum);
