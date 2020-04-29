@@ -108,8 +108,8 @@ function productClick(event) {
 					window.location.replace(callbackResponse.data.redirectUrl);
 				}
 			});
-		addToCartButtonPressed = false;
-	}
+		}
+	addToCartButtonPressed = false;
 }
 
 function cartRedirect(){
