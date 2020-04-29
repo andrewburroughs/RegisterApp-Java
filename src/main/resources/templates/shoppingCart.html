@@ -37,8 +37,8 @@
 					<br /><span class="productCountDisplay" th:text="${transactionEntry.quantity}">0</span>
 					<br /><span class="productCreatedOnDisplay" th:text="${transactionEntry.createdOn}">12/31/1999</span>
 					<br /><span class="productPriceDisplay" th:text="${transactionEntry.price}">Price</span>
-					<br /><input type="number" name="quantitySelect" th:value="${transactionEntry.quantity}" max="${transactionEntry.stock}" />
-					<input type="button" onclick="updateQuantity()" value="Update Quantity" />
+					<br /><input type="number" id="quantitySelect" name="quantitySelect" th:value="${transactionEntry.quantity}" max="${transactionEntry.stock}" />
+					<input type="button" onclick="calculateTotal()" value="Update Quantity" />
 					<input id="transactionEntryId" class="hidden" th:value="${transactionEntry.id}">
 				</li>
 			</ul>

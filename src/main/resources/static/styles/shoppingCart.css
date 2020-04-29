@@ -36,12 +36,6 @@ div.productsWrapper{
 	text-align: left;
 }
 
-.products li:hover {
-	color: #607D8B;
-	background-color: #DDD;
-	left: .1em;
-}
-
 a.button {
 	text-decoration: none;
 }
