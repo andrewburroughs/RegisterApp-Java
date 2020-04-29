@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}*/
 	var list = document.getElementsByClassName("productPriceDisplay");
 	for(let i = 0; i<list.length; i++){
-		var x = list[i].value;
+		var x = list[i].innerHTML;
 		var newText = "$" + x;
 		list[i].innerHTML = newText;
 	}
