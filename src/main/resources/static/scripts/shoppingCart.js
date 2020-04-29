@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(getContinueShoppingButtonElement() != null) {
         getContinueShoppingButtonElement().addEventListener("click", continueShopping);
     }
+    const productListElements = document.getElementById("productsListing").children;
 });
 
 function checkout() {
@@ -29,6 +30,12 @@ function continueShopping() {
     return;
 }
 
+function calculateTotal(){
+    for(let i = 0; i<productListElements.length; i++){
+        console.log(productListElements[i]);
+    }
+}
+
 // Getters
 
 function getCheckoutButtonElement() {
@@ -45,4 +52,8 @@ function getContinueShoppingButtonElement() {
 
 function getTransactionId(){
 	return document.getElementById("transactionId").value;
+}
+
+function getTotalDisplayElement(){
+    return document.getElementById("totalDisplay");
 }

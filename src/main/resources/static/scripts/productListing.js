@@ -76,6 +76,7 @@ function productClick(event) {
 			"/productDetail/"
 			+ listItem.querySelector("input[name='productId'][type='hidden']").value);
 	} else {
+		//Converts the price string back to a number
 		var str = listItem.querySelector("span[class='productPriceDisplay']").textContent;
 		var newStr = "";
 		for(let i = 0; i < str.length; i++){
