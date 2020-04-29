@@ -53,9 +53,16 @@ function calculateTotal(){
     var quantityList = document.getElementsByClassName("productCountDisplay");
     var priceList = document.getElementsByClassName("productPriceDisplay");
     var num = 0;
-    for(let i = 0; i<quantityList.length; i++){
+    for(let i = 0; i<priceList.length; i++){
+        var str = priceList[i].innerHTML;
+        var newStr = "";
+        for(let i = 0; i < str.length; i++){
+			if(str[i] != '$' && str[i] != ','){
+				newStr += str[i];
+			}
+        }
         var num1 = Number(quantityList[i].innerHTML);
-        var num2 = Number(priceList[i].innerHTML);
+        var num2 = Number(newStr);
         var newNum = num1 * num2;
         num += newNum;
     }
