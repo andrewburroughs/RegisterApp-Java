@@ -31,12 +31,10 @@
 		</div>
 
 		<div class="productsWrapper">
-			<div>
-				<a id="createButton" href="/productDetail" class="button" th:style="${isElevatedUser} ? initial : none">Create New</a>
+			<div id="createButtonWrapper">
+				<a href="/productDetail" class="button" th:style="${isElevatedUser} ? initial : none">Create New</a>
 			</div>
-
-			<br /><br />
-
+			
 			<ul id="productsListing" class="products">
 				<li th:each="product : ${products}">
 					<input type="hidden" name="productId" th:value="${product.id}" />
