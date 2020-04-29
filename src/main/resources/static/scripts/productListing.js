@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			productListElements[i].productCountDisplay = "Out of Stock";
 		}
 	}*/
+	console.log(noTransaction);
 });
 
 addToCartButtonPressed = false;
