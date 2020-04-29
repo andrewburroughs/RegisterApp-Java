@@ -61,8 +61,8 @@ function calculateTotal(){
 				newStr += str[i];
 			}
         }
-        console.log(quantityList[i].innerHTML);
-        var num1 = Number(quantityList[i].innerHTML);
+        console.log(quantityList[i].value);
+        var num1 = Number(quantityList[i].value);
         console.log(num1);
         var num2 = Number(newStr);
         var newNum = num1 * num2;
