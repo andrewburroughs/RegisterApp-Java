@@ -67,6 +67,7 @@ function calculateTotal(){
         num += newNum;
     }
     total = num;
+    num += "";
     var len = num.length;
     var pos = num.indexOf(".");
     if(pos == -1){
