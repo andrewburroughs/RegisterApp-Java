@@ -85,16 +85,19 @@ function productClick(event) {
 			}
 		}
 		var num = Number(newStr);
+		var stockStr;
 		if(listItem.querySelector("span[class='productCountDisplay']").textContent == "Out of Stock"){
-			alert("This item is out of stock.  Please try again later");
+			stockStr = 0;
 		}
 		else{
-			const addToCartUrl = "/api/transactionEntry/";
-			const addtoCartRequest = {
-				transactionId: getTransactionId(),
-				productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
-				lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
-				quantity: 1,
+			stockStr = listItem.querySelector("span[class='productCountDisplay']").textContent;
+		}
+		const addToCartUrl = "/api/transactionEntry/";
+		const addtoCartRequest = {
+			transactionId: getTransactionId(),
+			productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
+			lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
+			quantity: 1,
 				stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
 				price: num,
 				createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
@@ -105,7 +108,6 @@ function productClick(event) {
 					window.location.replace(callbackResponse.data.redirectUrl);
 				}
 			});
-		}
 		addToCartButtonPressed = false;
 	}
 }
