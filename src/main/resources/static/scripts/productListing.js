@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			productListElements[i].productCountDisplay = "Out of Stock";
 		}
 	}*/
+	var list = document.getElementsByClassName("productCountDisplay");
+	for(let i = 0; i < list.length; i++){
+		if(list[i].innerHTML == "0"){
+			list[i].innerHTML = "Out of Stock";
+		}
+	}
 	var list = document.getElementsByClassName("productPriceDisplay");
 	for(let i = 0; i<list.length; i++){
 		var x = list[i].innerHTML;
