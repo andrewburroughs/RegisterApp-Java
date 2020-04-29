@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	for(let i = 0; i<list.length; i++){
 		var x = list[i].value;
 		var newText = "$" + x;
-		list[i].value = newText;
+		list[i].innerHTML = newText;
 	}
 });
 
