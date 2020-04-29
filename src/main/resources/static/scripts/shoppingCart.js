@@ -43,10 +43,12 @@ function calculateTotal(){
         var test2 = Number(quantityList[i].innerHTML);
         var test3 = Number(priceList[i].innerHTML);
         var test4 = 42.0 * 1;
+        var test5 = test2 * test3;
         console.log(test);
         console.log(test2);
         console.log(test3);
         console.log(test4);
+        console.log(test5);
         console.log(newNum);
         num = num + newNum;
         console.log(num);
