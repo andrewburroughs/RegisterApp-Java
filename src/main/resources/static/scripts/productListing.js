@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	var list = document.getElementsByClassName("productPriceDisplay");
 	for(let i = 0; i<list.length; i++){
 		var x = list[i].innerHTML;
+		var len = x.length;
+		var pos = x.indexOf(".");
+		console.log(len + " " + pos);
 		var newText = "$" + x;
 		list[i].innerHTML = newText;
 	}
