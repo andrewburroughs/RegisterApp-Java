@@ -58,9 +58,8 @@ a.button {
 	width: 25px;
 }
 
-.productNameDisplay,
 .productPriceDisplay{
-	visibility: hidden;
+	visibility: visible;
 }
 
 .productCountDisplay,
