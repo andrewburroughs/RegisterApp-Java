@@ -76,9 +76,10 @@ function productClick(event) {
 			"/productDetail/"
 			+ listItem.querySelector("input[name='productId'][type='hidden']").value);
 	} else {
-		var str = listItem.querySelector("span[class='productCountDisplay']").textContent;
+		var str = listItem.querySelector("span[class='productPriceDisplay']").textContent;
 		var newStr;
 		for(let i = 0; i < str.length; i++){
+			console.log(str[i]);
 			if(str[i] != '$' && str[i] != ','){
 				newStr += str[i];
 			}
