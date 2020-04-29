@@ -33,8 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		var x = list[i].innerHTML;
 		var len = x.length;
 		var pos = x.indexOf(".");
-		console.log(len + " " + pos);
+		var diff = len - pos;
 		var newText = "$" + x;
+		if(diff==2){
+			newText += ".";
+		}
+		for(let j = 0; j<diff; j++){
+			newText += "0"
+		}
 		list[i].innerHTML = newText;
 	}
 });
