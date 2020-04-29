@@ -75,6 +75,9 @@ function calculateTotal(){
         pos = num.indexOf(".");
     }
     var diff = len - pos;
+    console.log(len);
+    console.log(pos);
+    console.log(diff);
     var newText = "$" + num;
     for(let j = diff; j<3; j++){
         newText += "0"
