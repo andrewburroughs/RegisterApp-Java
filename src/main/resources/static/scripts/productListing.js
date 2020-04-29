@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	for (let i = 0; i < productListElements.length; i++) {
 		productListElements[i].addEventListener("click", productClick);
 	}
-	const pathnameString = window.location.pathname;
-	if(pathnameString == "/productListing"){
+	const noTransaction = window.location.pathname == "/productListing";
+	if(noTransaction){
 		getReturnToCartButtonElement().hidden = true;
 		getReturnToCartButtonElement().disabled = true;
 		var list = document.getElementsByClassName("cartButton");
@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			list[i].hidden = true;
 			list[i].disabled = true;
 		}
+	}
+	else{
+		getCreateButtonElement().hidden = true;
+		getCreateButtonElement().disabled = true;
 	}
 	// TODO: Check this code against products with a count of 0
 	// EDIT: Does not work
@@ -92,4 +96,8 @@ function getReturnToCartButtonElement(){
 
 function getTransactionId(){
 	return document.getElementById("transactionId").value;
+}
+
+function getCreateButtonElement(){
+	return document.getElementById("createButton");
 }
