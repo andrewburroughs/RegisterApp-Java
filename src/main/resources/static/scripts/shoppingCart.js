@@ -73,6 +73,7 @@ function calculateTotal(){
     if(pos == -1){
         num += ".";
         pos = num.indexOf(".");
+        len = num.length;
     }
     var diff = len - pos;
     console.log(len);
