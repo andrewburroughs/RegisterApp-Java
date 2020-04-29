@@ -38,12 +38,12 @@ function calculateTotal(){
     var priceList = document.getElementsByClassName("productPriceDisplay");
     var num = 0;
     for(let i = 0; i<quantityList.length; i++){
-        var newNum = Number(quantityList[i].innerHTML) * Number(priceList[i].innerTHML);
         var test = Number(quantityList[i].innerHTML) + Number(priceList[i].innerHTML);
         var test2 = Number(quantityList[i].innerHTML);
         var test3 = Number(priceList[i].innerHTML);
         var test4 = 42.0 * 1;
         var test5 = test2 * test3;
+        num += test5;
         console.log(test);
         console.log(test2);
         console.log(test3);
