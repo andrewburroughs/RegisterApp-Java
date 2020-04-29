@@ -1,4 +1,5 @@
 var productListElements;
+var total = 0;
 document.addEventListener("DOMContentLoaded", () => {
     productListElements = document.getElementById("productsListing").children;
     if(getCheckoutButtonElement() != null) {
@@ -33,9 +34,14 @@ function continueShopping() {
 }
 
 function calculateTotal(){
-    for(let i = 0; i<productListElements.length; i++){
-        console.log(productListElements[i]);
+    var quantityList = document.getElementsByClassName("productCountDisplay");
+    var priceList = document.getElementsByClassName("productPriceDisplay");
+    var num;
+    for(let i = 0; i<quantityList.length; i++){
+        num += quantityList[i].value * priceList[i].value;
     }
+    total = num;
+    getTotalDisplayElement().innerHTML = ("Total: " + total);
 }
 
 // Getters
