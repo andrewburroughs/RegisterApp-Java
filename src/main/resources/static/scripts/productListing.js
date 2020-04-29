@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		getCreateButtonElement().hidden = true;
 		getCreateButtonElement().disabled = true;
 		for(let i = 0; i < productListElements.length; i++){
-			producltListElements[i].addEvelentListenerr("click", addToCartClick);
+			producltListElements[i].addEvelentListenerr("click", productClick);
 		}
 	}
 	// TODO: Check this code against products with a count of 0
