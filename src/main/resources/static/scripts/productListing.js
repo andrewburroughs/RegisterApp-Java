@@ -1,3 +1,4 @@
+var noTransaction = true;
 document.addEventListener("DOMContentLoaded", () => {
 	const productListElements = document.getElementById("productsListing").children;
 	if(getReturnToCartButtonElement() != null){
@@ -7,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		productListElements[i].addEventListener("click", productClick);
 	}
 	//Hides the addToCart and returnToCart Buttons when no transaction is occuring
-	if(window.location.pathname == "/productListing"){
+	noTransaction = window.location.pathname == "/productListing";
+	if(noTransaction){
 		getReturnToCartButtonElement().hidden = true;
 		getReturnToCartButtonElement().disabled = true;
 		var list = document.getElementsByClassName("cartButton");
@@ -69,7 +71,7 @@ function findClickedListItemElement(clickedTarget) {
 
 function productClick(event) {
 	let listItem = findClickedListItemElement(event.target);
-	if(!addToCartButtonPressed && window.location.pathname == "/productListing") {
+	if(!addToCartButtonPressed && noTransaction) {
 		window.location.assign(
 			"/productDetail/"
 			+ listItem.querySelector("input[name='productId'][type='hidden']").value);
