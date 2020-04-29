@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	if(getReturnToCartButtonElement() != null){
 		getReturnToCartButtonElement().addEventListener("click", cartRedirect);
 	}
+	for (let i = 0; i < productListElements.length; i++) {
+		productListElements[i].addEventListener("click", productClick);
+	}
 	const noTransaction = window.location.pathname == "/productListing";
 	if(noTransaction){
-		for (let i = 0; i < productListElements.length; i++) {
-			productListElements[i].addEventListener("click", productClick);
-		}
 		getReturnToCartButtonElement().hidden = true;
 		getReturnToCartButtonElement().disabled = true;
 		var list = document.getElementsByClassName("cartButton");
@@ -19,9 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	else{
 		getCreateButtonElement().hidden = true;
 		getCreateButtonElement().disabled = true;
-		for(let i = 0; i < productListElements.length; i++){
-			producltListElements[i].addEvelentListenerr("click", productClick);
-		}
 	}
 	// TODO: Check this code against products with a count of 0
 	// EDIT: Does not work
