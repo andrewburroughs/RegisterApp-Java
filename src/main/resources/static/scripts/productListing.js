@@ -84,6 +84,7 @@ function productClick(event) {
 				newStr += str[i];
 			}
 		}
+		var num = Number(newStr);
 		console.log(newStr);
 		const addToCartUrl = "/api/transactionEntry/";
 		const addtoCartRequest = {
@@ -91,7 +92,7 @@ function productClick(event) {
 			productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
 			lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
 			quantity: 1,
-			stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
+			stock: num,
 			price: listItem.querySelector("span[class='productPriceDisplay']").textContent,
 			createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
 		};
