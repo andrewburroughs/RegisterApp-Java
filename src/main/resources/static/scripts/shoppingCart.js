@@ -49,11 +49,8 @@ function calculateTotal(){
         console.log(test3);
         console.log(test4);
         console.log(test5);
-        console.log(newNum);
-        num = num + newNum;
         console.log(num);
-        console.log(newNum);
-        console.log(newNum + " " + num + " " + Number(quantityList[i].innerHTML) + " " + Number(priceList[i].innerHTML));
+        console.log(num + " " + Number(quantityList[i].innerHTML) + " " + Number(priceList[i].innerHTML));
     }
     total = num;
     getTotalDisplayElement().innerHTML = ("Total: " + total);
