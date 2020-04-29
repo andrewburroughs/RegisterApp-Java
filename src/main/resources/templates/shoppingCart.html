@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
 	<link rel="stylesheet" type="text/css" href="/styles/master.css">
-	<link rel="stylesheet" type="text/css" href="/styles/productListing.css">
+	<link rel="stylesheet" type="text/css" href="/styles/shoppingCart.css">
 
 	<script type="text/javascript" src="/scripts/master.js" defer></script>
 	<script type="text/javascript" src="/scripts/shoppingCart.js" defer></script>
@@ -38,7 +38,7 @@
 					<br /><span class="productCreatedOnDisplay" th:text="${transactionEntry.createdOn}">12/31/1999</span>
 					<br /><span class="productPriceDisplay" th:text="${transactionEntry.price}">Price</span>
 					<br /><input type="number" name="quantitySelect" th:value="${transactionEntry.quantity}" max="${transactionEntry.stock}" />
-					<br /><input type="button" onclick="updateQuantity()" value="Update Quantity" />
+					<input type="button" onclick="updateQuantity()" value="Update Quantity" />
 					<input id="transactionEntryId" class="hidden" th:value="${transactionEntry.id}">
 				</li>
 			</ul>
