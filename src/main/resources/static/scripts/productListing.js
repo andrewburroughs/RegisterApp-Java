@@ -1,3 +1,4 @@
+var noTransaction = true;
 document.addEventListener("DOMContentLoaded", () => {
 	const productListElements = document.getElementById("productsListing").children;
 	if(getReturnToCartButtonElement() != null){
@@ -6,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	for (let i = 0; i < productListElements.length; i++) {
 		productListElements[i].addEventListener("click", productClick);
 	}
-	const noTransaction = window.location.pathname == "/productListing";
+	noTransaction = window.location.pathname == "/productListing";
 	if(noTransaction){
 		getReturnToCartButtonElement().hidden = true;
 		getReturnToCartButtonElement().disabled = true;
