@@ -92,8 +92,8 @@ function productClick(event) {
 			productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
 			lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
 			quantity: 1,
-			stock: num,
-			price: listItem.querySelector("span[class='productPriceDisplay']").textContent,
+			stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
+			price: num,
 			createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
 		};
 		console.log(addtoCartRequest);
