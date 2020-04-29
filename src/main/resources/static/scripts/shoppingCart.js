@@ -1,12 +1,12 @@
+var productListElements;
 document.addEventListener("DOMContentLoaded", () => {
-    const productListElements = document.getElementById("productsListing").children;
+    productListElements = document.getElementById("productsListing").children;
     if(getCheckoutButtonElement() != null) {
         getCheckoutButtonElement().addEventListener("click", checkout);
     }
     if(getContinueShoppingButtonElement() != null) {
         getContinueShoppingButtonElement().addEventListener("click", continueShopping);
     }
-    const productListElements = document.getElementById("productsListing").children;
     calculateTotal();
 });
 
