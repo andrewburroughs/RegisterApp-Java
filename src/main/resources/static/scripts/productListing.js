@@ -59,6 +59,24 @@ function productClick(event) {
 		window.location.assign(
 			"/productDetail/"
 			+ listItem.querySelector("input[name='productId'][type='hidden']").value);
+	} else {
+		const addToCartUrl = "/api/transactionEntry/";
+		const addtoCartRequest = {
+			transactionId: getTransactionId(),
+			productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
+			lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
+			quantity: 1,
+			stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
+			price: listItem.querySelector("span[class='productPriceDisplay']").textContent,
+			createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
+		};
+		ajaxPost(addToCartUrl, addtoCartRequest, (callbackResponse) => {
+			if(isSuccessResponse(callbackResponse)) {
+				location.assign("/productListing");
+				window.location.replace(callbackResponse.data.redirectUrl);
+			}
+		});
+		addToCartButtonPressed = false;
 	}
 }
 
@@ -67,24 +85,7 @@ function cartRedirect(){
 }
 
 function addToCartClick(){
-	addToCartButtonPressed = true;\
-	const addToCartUrl = "/api/transactionEntry/";
-	const addtoCartRequest = {
-		transactionId: getTransactionId(),
-		productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
-		lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
-		quantity: 1,
-		stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
-		price: listItem.querySelector("span[class='productPriceDisplay']").textContent,
-		createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
-	};
-	ajaxPost(addToCartUrl, addtoCartRequest, (callbackResponse) => {
-		if(isSuccessResponse(callbackResponse)) {
-			location.assign("/productListing");
-			window.location.replace(callbackResponse.data.redirectUrl);
-		}
-	});
-	addToCartButtonPressed = false;
+	addToCartButtonPressed = true;
 }
 
 // getters
