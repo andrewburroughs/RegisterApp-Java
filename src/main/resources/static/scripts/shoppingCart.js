@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const productListElements = document.getElementById("productsListing").children;
     if(getCheckoutButtonElement() != null) {
         getCheckoutButtonElement().addEventListener("click", checkout);
     }
