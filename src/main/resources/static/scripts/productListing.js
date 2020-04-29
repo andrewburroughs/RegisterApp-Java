@@ -76,6 +76,14 @@ function productClick(event) {
 			"/productDetail/"
 			+ listItem.querySelector("input[name='productId'][type='hidden']").value);
 	} else {
+		var str = listItem.querySelector("span[class='productCountDisplay']").textContent;
+		var newStr;
+		for(let i = 0; i < str.length; i++){
+			if(str[i] != '$' && str[i] != ','){
+				newStr += str[i];
+			}
+		}
+		console.log(newStr);
 		const addToCartUrl = "/api/transactionEntry/";
 		const addtoCartRequest = {
 			transactionId: getTransactionId(),
@@ -86,6 +94,7 @@ function productClick(event) {
 			price: listItem.querySelector("span[class='productPriceDisplay']").textContent,
 			createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
 		};
+		console.log(addtoCartRequest);
 		ajaxPost(addToCartUrl, addtoCartRequest, (callbackResponse) => {
 			if(isSuccessResponse(callbackResponse)) {
 				location.assign("/productListing");
