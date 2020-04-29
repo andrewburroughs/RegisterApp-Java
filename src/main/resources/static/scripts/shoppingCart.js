@@ -36,9 +36,10 @@ function continueShopping() {
 function calculateTotal(){
     var quantityList = document.getElementsByClassName("productCountDisplay");
     var priceList = document.getElementsByClassName("productPriceDisplay");
-    var num;
+    var num = 0;
     for(let i = 0; i<quantityList.length; i++){
         num += quantityList[i].value * priceList[i].value;
+        console.log(num + " " + quantityList[i].value + " " + priceList[i].value);
     }
     total = num;
     getTotalDisplayElement().innerHTML = ("Total: " + total);
