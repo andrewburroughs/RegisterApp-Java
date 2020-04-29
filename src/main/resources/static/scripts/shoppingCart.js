@@ -38,19 +38,10 @@ function calculateTotal(){
     var priceList = document.getElementsByClassName("productPriceDisplay");
     var num = 0;
     for(let i = 0; i<quantityList.length; i++){
-        var test = Number(quantityList[i].innerHTML) + Number(priceList[i].innerHTML);
-        var test2 = Number(quantityList[i].innerHTML);
-        var test3 = Number(priceList[i].innerHTML);
-        var test4 = 42.0 * 1;
-        var test5 = test2 * test3;
-        num += test5;
-        console.log(test);
-        console.log(test2);
-        console.log(test3);
-        console.log(test4);
-        console.log(test5);
-        console.log(num);
-        console.log(num + " " + Number(quantityList[i].innerHTML) + " " + Number(priceList[i].innerHTML));
+        var num1 = Number(quantityList[i].innerHTML);
+        var num2 = Number(priceList[i].innerHTML);
+        var newNum = num1 * num2;
+        num += newNum;
     }
     total = num;
     getTotalDisplayElement().innerHTML = ("Total: " + total);
