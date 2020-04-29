@@ -55,17 +55,20 @@
 
 		<form method="post" actions="">
 
-				<b for="name">Product</b><b for="name" style="margin-left: 175px">Price</b><b for="name" style="margin-left: 30px">Total Price</b>
+				<b for="name">Product</b><br/>
+				<b for="name" style="margin-left: 175px">Quantity</b><br/>
+				<b for="name" style="margin-left: 175px">Price</b><br/>
+				<b for="name" style="margin-left: 175px">Total Price</b>
 				<br/><br/>
 
 
 				<ul id="productsListing" class="products">
-					<li th:each="transactionEntry : ${transactionEntries}">
+					<div th:each="transactionEntry : ${transactionEntries}">
 						<input type="hidden" name="productId" th:value="${transactionEntry.productId}" />
 						<span class="productLookupCodeDisplay" th:text="${transactionEntry.lookupCode}">lookupCode</span>
 						<br /><span class="productCountDisplay" th:text="${transactionEntry.quantity}">0</span>
 						<br /><span class="productPriceDisplay" th:text="${transactionEntry.price}">Price</span>
-					</li>
+					</div>
 				</ul>
 				<input type="button" onclick="decrementValue()" value="-" />
 				<input type="text" id="number" value="1" maxlength="1" size="1" style="text-align: center;" />

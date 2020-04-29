@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function checkout() {
-    location.assign("/transactionSummary" + getTransactionId());
+    location.assign("/transactionSummary/" + getTransactionId());
     return;
 }
 
@@ -103,6 +103,19 @@ function getContinueShoppingButtonElement() {
 
 function getTransactionId(){
 	return document.getElementById("transactionId").value;
+}
+
+function updateQuantity() {
+    const updateQuantityUrl = "/api/transactionEntry/";
+    const data =  {
+        quantity: listItem.querySelector("input[name='quantitySelect'][type='number']").value
+    };
+    ajaxPut(updateQuantityUrl, data, (callbackResponse) => {
+        if (isSuccessResponse(callbackResponse)) {
+            window.location.replace(callbackResponse.data.redirectUrl);
+        }
+    });
+    return;
 }
 
 function getTotalDisplayElement(){

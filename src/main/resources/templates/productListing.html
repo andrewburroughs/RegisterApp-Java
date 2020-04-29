@@ -35,6 +35,8 @@
 				<a href="/productDetail" id="createButton" class="button" th:style="${isElevatedUser} ? initial : none">Create New</a>
 			</div>
 
+			<br /><br />
+
 			<ul id="productsListing" class="products">
 				<li th:each="product : ${products}">
 					<input type="hidden" name="productId" th:value="${product.id}" />

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.uark.registerapp.controllers.enums.ViewNames;
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.commands.transactions.TransactionEntriesQuery;
-import edu.uark.registerapp.models.api.Product;
 
 
 @Controller

@@ -17,10 +17,7 @@ import edu.uark.registerapp.models.repositories.TransactionEntryRepository;
 public class AddToCartCommand implements ResultCommandInterface<TransactionEntry>{
     @Override
     public TransactionEntry execute() {
-        final TransactionEntryEntity createdTransactionEntryEntity = this.createTransactionEntryEntity();
-
-        // this.apiTransactionEntry.setId(createdTransactionEntryEntity.getId());
-        // this.apiTransactionEntry.setCreatedOn(createdTransactionEntryEntity.getCreatedOn());
+        this.createTransactionEntryEntity();
 
         return this.apiTransactionEntry;
     }
