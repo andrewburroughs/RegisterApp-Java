@@ -67,7 +67,19 @@ function calculateTotal(){
         num += newNum;
     }
     total = num;
-    getTotalDisplayElement().innerHTML = ("Total: " + total);
+    var len = num.length;
+    var pos = num.indexOf(".");
+    if(pos == -1){
+        num += ".";
+        pos = num.indexOf(".");
+    }
+    var diff = len - pos;
+    var newText = "$" + num;
+    for(let j = diff; j<3; j++){
+        newText += "0"
+    }
+    num = newText;
+    getTotalDisplayElement().innerHTML = ("Total: " + num);
 }
 
 // Getters
