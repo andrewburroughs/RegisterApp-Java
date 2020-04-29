@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         getContinueShoppingButtonElement().addEventListener("click", continueShopping);
     }
     const productListElements = document.getElementById("productsListing").children;
+    calculateTotal();
 });
 
 function checkout() {
