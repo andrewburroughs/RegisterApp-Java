@@ -8,6 +8,38 @@
 	<script type="text/javascript" src="/scripts/master.js" defer></script>
 	<script type="text/javascript" src="/scripts/transactionSummary.js" defer></script>
 
+	<script>
+
+		var quantity;
+		
+		function incrementValue(){
+		
+			quantity = parseInt(document.getElementById('number').value, 10);
+			   quantity = isNaN(quantity) ? 0 : quantity;
+			quantity++;
+			document.getElementById('number').value = quantity;
+					
+		}
+		
+		function decrementValue(){
+		
+			quantity = parseInt(document.getElementById('number').value, 10);
+			quantity = isNaN(quantity) ? 0 : quantity;
+			if(quantity > 0)
+				quantity--;
+			else
+				quantity = 0;
+			document.getElementById('number').value = quantity;
+		} 
+
+		function updatePrice(){
+
+			
+
+		}
+
+	</script>
+
 </head>
 
 <body>
@@ -22,29 +54,25 @@
 		</div>
 
 		<form method="post" actions="">
-			<div>
-				<label for="name">Product</label>
-				
+
+				<b for="name">Product</b><b for="name" style="margin-left: 175px">Price</b><b for="name" style="margin-left: 30px">Total Price</b>
+				<br/><br/>
+
+
+				<ul id="productsListing" class="products">
+					<li th:each="transactionEntry : ${transactionEntries}">
+						<input type="hidden" name="productId" th:value="${transactionEntry.productId}" />
+						<span class="productLookupCodeDisplay" th:text="${transactionEntry.lookupCode}">lookupCode</span>
+						<br /><span class="productCountDisplay" th:text="${transactionEntry.quantity}">0</span>
+						<br /><span class="productPriceDisplay" th:text="${transactionEntry.price}">Price</span>
+					</li>
+				</ul>
 				<input type="button" onclick="decrementValue()" value="-" />
 				<input type="text" id="number" value="1" maxlength="1" size="1" style="text-align: center;" />
    				<input type="button" onclick="incrementValue()" value="+" />
-			</div>
-			
-			<div>
-				<label for="name">________________________________________________</label>
-				<tr>
-					<th>Input</th>
-					<th>Cost per item</th>
-					<th>Total</th>
-				  </tr>
-				<br/> <br/>
-				<td class="amount"><input type="number" value="1"></td>
-				<td class="cost">27</td>
-				<td class="total">27</td>
 
-
-				
-				<br/>
+				<label id="number" style="margin-left: 70px">10</label>
+				<label id="number" style="margin-left: 65px">10</label>
 				
 
 			<div>
