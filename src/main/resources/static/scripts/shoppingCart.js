@@ -39,7 +39,13 @@ function calculateTotal(){
     var num = 0;
     for(let i = 0; i<quantityList.length; i++){
         var newNum = Number(quantityList[i].innerHTML) * Number(priceList[i].innerTHML);
+        var test = Number(quantityList[i].innerHTML) + Number(priceList[i].innerHTML);
+        var test2 = quantityList[i].innerHTML.valueOf();
+        console.log(test);
+        console.log(test2);
         num = num + newNum;
+        console.log(num);
+        console.log(newNum);
         console.log(newNum + " " + num + " " + Number(quantityList[i].innerHTML) + " " + Number(priceList[i].innerHTML));
     }
     total = num;
