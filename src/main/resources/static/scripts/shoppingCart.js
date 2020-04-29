@@ -38,8 +38,9 @@ function calculateTotal(){
     var priceList = document.getElementsByClassName("productPriceDisplay");
     var num = 0;
     for(let i = 0; i<quantityList.length; i++){
-        num += Number(quantityList[i].innerHTML) * Number(priceList[i].innerTHML);
-        console.log(num + " " + Number(quantityList[i].innerHTML) + " " + Number(priceList[i].innerHTML));
+        var newNum = Number(quantityList[i].innerHTML) * Number(priceList[i].innerTHML);
+        num = num + newNum;
+        console.log(newNum + " " + num + " " + Number(quantityList[i].innerHTML) + " " + Number(priceList[i].innerHTML));
     }
     total = num;
     getTotalDisplayElement().innerHTML = ("Total: " + total);
