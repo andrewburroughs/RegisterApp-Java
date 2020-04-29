@@ -50,7 +50,7 @@ function continueShopping() {
 }
 
 function calculateTotal(){
-    var quantityList = document.getElementsByClassName("productCountDisplay");
+    var quantityList = document.getElementsByClassName("quantitySelect");
     var priceList = document.getElementsByClassName("productPriceDisplay");
     var num = 0;
     for(let i = 0; i<priceList.length; i++){
@@ -61,7 +61,9 @@ function calculateTotal(){
 				newStr += str[i];
 			}
         }
+        console.log(quantityList[i].innerHTML);
         var num1 = Number(quantityList[i].innerHTML);
+        console.log(num1);
         var num2 = Number(newStr);
         var newNum = num1 * num2;
         num += newNum;
@@ -76,9 +78,6 @@ function calculateTotal(){
         len = num.length;
     }
     var diff = len - pos;
-    console.log(len);
-    console.log(pos);
-    console.log(diff);
     var newText = "$" + num;
     for(let j = diff; j<3; j++){
         newText += "0"
