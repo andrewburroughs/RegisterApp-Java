@@ -104,20 +104,14 @@ function getTransactionId(){
 	return document.getElementById("transactionId").value;
 }
 
-function updateQuantity() {
+function updateButtonClick() {
     alert("CLICK!!");
     let listItem = findClickedListItemElement(event.target);
     const updateQuantityUrl = "/api/transactionEntry/";
-    const str = listItem.querySelector("input[name='productPriceDisplay']").textContent;
-    //Will create a global function to do this later
-    var newStr = "";
-    for(let i = 0; i < str.length; i++){
-        if(str[i] != '$' && str[i] != ','){
-            newStr += str[i];
-        }
-    }
-    var num = Number(newStr);
-    const updateCartRequest = {
+    const str = listItem.querySelector("input[name='quantitySelect']").value;
+    console.log(str);
+    console.log(getTransactionId());
+    /*const updateCartRequest = {
         
     }
     ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
@@ -125,7 +119,7 @@ function updateQuantity() {
             location.assign("/shoppingCart");
             window.location.replace(callbackResponse.data.redirectUrl);
         }
-    });
+    });*/
     calculateTotal();
 }
 
@@ -150,8 +144,4 @@ function findClickedListItemElement(clickedTarget) {
 
 		return (ancestorIsListItem ? ancestorElement : null);
 	}
-}
-
-function updateButtonClick(){
-    alert("HELLO MIAMI");
 }
