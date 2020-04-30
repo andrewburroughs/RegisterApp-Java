@@ -63,6 +63,7 @@ function getNumUnits() {
 }
 
 function updateButtonClick(event) {
+    console.log("updateButtonClick");
     let listItem = findClickedListItemElement(event.target);
     const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
     var str = listItem.querySelector("input[name='quantitySelect']").value;
@@ -85,7 +86,7 @@ function updateButtonClick(event) {
             window.location.replace("/shoppingCart/" + getTransactionId());
         }
     });
-    setTimeout(calculateTotal(), 1000);
+    calculateTotal();
 }
 
 function removeItem(event) {
@@ -128,6 +129,7 @@ function cancelTransaction(){
 }
 
 function calculateTotal(){
+    console.log("calculateTotal");
     var quantityList = document.getElementsByClassName("quantitySelect");
     var priceList = document.getElementsByClassName("productPriceDisplay");
     var num = 0;
