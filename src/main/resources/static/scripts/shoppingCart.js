@@ -106,7 +106,7 @@ function updateQuantity() {
     const updateQuantityUrl = "/api/transactionEntry/";
     const updateCartRequest = {
         transactionId: getTransactionId(),
-        quantity: listItem.querySelector("input[name='quantitySelect'][type='number']").value;
+        quantity: listItem.querySelector("input[name='quantitySelect'][type='number']").value
     }
     ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
