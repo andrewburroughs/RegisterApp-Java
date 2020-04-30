@@ -104,17 +104,30 @@ function getTransactionId(){
 
 function updateQuantity() {
     const updateQuantityUrl = "/api/transactionEntry/";
+    const str = listItem.querySelector("input[name='productPriceDisplay']").textContent;
+    //Will create a global function to do this later
+    var newStr = "";
+    for(let i = 0; i < str.length; i++){
+        if(str[i] != '$' && str[i] != ','){
+            newStr += str[i];
+        }
+    }
+    var num = Number(newStr);
     const updateCartRequest = {
-        transactionId: getTransactionId(),
-        quantity: listItem.querySelector("input[name='quantitySelect'][type='number']").value
+        productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
+        lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
+        quantity: lisstItem.querySelector("span[class='quantitySelect']").value,
+        stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
+        price: num,
+        createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
     }
     ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
+            location.assign("/shopoingCart");
             window.location.replace(callbackResponse.data.redirectUrl);
         }
     });
     calculateTotal();
-    return;
 }
 
 function getTotalDisplayElement(){
