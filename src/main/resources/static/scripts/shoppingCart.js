@@ -137,21 +137,16 @@ function getTransactionId(){
 	return document.getElementById("transactionId").value;
 }
 
-function getTransactionEntryId(){
-    return document.getElementById("transactionEntryId").value;
-}
-
 function updateButtonClick() {
     let listItem = findClickedListItemElement(event.target);
-    const updateQuantityUrl = "/api/transactionEntry/" + getTransactionEntryId();
+    const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
     const str = listItem.querySelector("input[name='quantitySelect']").value;
     const updateCartRequest = {
         quantity: str
     };
     ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
-            location.assign("/shoppingCart");
-            window.location.replace(callbackResponse.data.redirectUrl);
+            window.location.replace("/shoppingCart/" + getTransactionId());
         }
     });
     calculateTotal();
