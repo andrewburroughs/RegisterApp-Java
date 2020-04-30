@@ -99,17 +99,17 @@ function productClick(event) {
 			productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
 			lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
 			quantity: 1,
-				stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
-				price: num,
-				createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
-			};
-			ajaxPost(addToCartUrl, addtoCartRequest, (callbackResponse) => {
-				if(isSuccessResponse(callbackResponse)) {
-					location.assign("/productListing");
-					window.location.replace(callbackResponse.data.redirectUrl);
-				}
-			});
-		}
+			stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
+			price: num,
+			createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
+		};
+		ajaxPost(addToCartUrl, addtoCartRequest, (callbackResponse) => {
+			if(isSuccessResponse(callbackResponse)) {
+				location.assign("/productListing");
+				window.location.replace(callbackResponse.data.redirectUrl);
+			}
+		});
+	}
 	addToCartButtonPressed = false;
 }
 
