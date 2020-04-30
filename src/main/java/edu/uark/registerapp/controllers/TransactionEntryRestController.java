@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.uark.registerapp.commands.transactions.AddToCartCommand;
+import edu.uark.registerapp.commands.transactions.ClearCartCommand;
 import edu.uark.registerapp.commands.transactions.RemoveFromCartCommand;
 import edu.uark.registerapp.commands.transactions.UpdateCartCommand;
 import edu.uark.registerapp.models.api.ApiResponse;
@@ -52,6 +53,17 @@ public class TransactionEntryRestController {
         return new ApiResponse();
     }
 
+    @RequestMapping(value = "//{transactionId}", method = RequestMethod.DELETE)
+    public @ResponseBody ApiResponse clearCart(
+        @PathVariable final UUID transactionId
+    ) {
+        this.clearCartCommand
+            .setTransactionId(transactionId)
+            .execute();
+        
+        return new ApiResponse();
+    }
+
     // Properties
     @Autowired
     private AddToCartCommand addToCartCommand;
@@ -61,4 +73,7 @@ public class TransactionEntryRestController {
 
     @Autowired
     private RemoveFromCartCommand removeFromCartCommand;
+
+    @Autowired
+    private ClearCartCommand clearCartCommand;
 }

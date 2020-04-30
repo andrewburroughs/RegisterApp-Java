@@ -122,24 +122,20 @@ function addToCartClick(){
 }
 
 function searchProduct(){
-	console.log('nice');
 	var searchParam = getSearchBarElement().value;
-	var searchLen = searchParam.length
-	var lookupCodes = getProductList().getElementsByTagName("li")
+	var searchLen = searchParam.length;
+	var items = getProductList().getElementsByTagName("li");
 	if(searchLen == 0) {
-		console.log('empty')
-		for(let i=0;i<lookupCodes.length;i++) {
-			lookupCodes[i].hidden = false;
+		for(let i=0;i<items.length;i++) {
+			items[i].hidden = false;
 		}
 	} else {
-		for(let i=0;i<lookupCodes.length;i++){
-			console.log('loop')
-			var lookupCode = lookupCodes[i].querySelector("span[class='productLookupCodeDisplay']").textContent;
-			console.log(lookupCode);
+		for(let i=0;i<items.length;i++){
+			var lookupCode = items[i].querySelector("span[class='productLookupCodeDisplay']").textContent;
 			if(lookupCode.length < searchLen || lookupCode.substring(0,searchLen) != searchParam) {
-				lookupCodes[i].hidden = true;
+				items[i].hidden = true;
 			} else {
-				lookupCodes[i].hidden = false;
+				items[i].hidden = false;
 			}
 		}
 	}
