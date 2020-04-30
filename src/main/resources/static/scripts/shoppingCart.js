@@ -86,7 +86,6 @@ function updateButtonClick(event) {
             window.location.replace("/shoppingCart/" + getTransactionId());
         }
     });
-    calculateTotal();
 }
 
 function removeItem(event) {
