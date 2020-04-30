@@ -137,10 +137,11 @@ function getTransactionId(){
 	return document.getElementById("transactionId").value;
 }
 
-function updateButtonClick() {
+function updateButtonClick(event) {
     let listItem = findClickedListItemElement(event.target);
     const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").textContent;
     const str = listItem.querySelector("input[name='quantitySelect']").value;
+    
     const updateCartRequest = {
         quantity: str
     };
@@ -154,23 +155,4 @@ function updateButtonClick() {
 
 function getTotalDisplayElement(){
     return document.getElementById("totalDisplay");
-}
-
-function findClickedListItemElement(clickedTarget) {
-	if (clickedTarget.tagName.toLowerCase() === "li") {
-		return clickedTarget;
-	} else {
-		let ancestorIsListItem = false;
-		let ancestorElement = clickedTarget.parentElement;
-
-		while (!ancestorIsListItem && (ancestorElement != null)) {
-			ancestorIsListItem = (ancestorElement.tagName.toLowerCase() === "li");
-
-			if (!ancestorIsListItem) {
-				ancestorElement = ancestorElement.parentElement;
-			}
-		}
-
-		return (ancestorIsListItem ? ancestorElement : null);
-	}
 }
