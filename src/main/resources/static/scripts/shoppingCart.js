@@ -159,6 +159,12 @@ function updateButtonClick(event) {
     const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
     var str = listItem.querySelector("input[name='quantitySelect']").value;
     var num = Number(str);
+    var stock = listItem.querySelector("input[name='stock']").value;
+    var stockNum = Number(stock);
+    if(num > stockNum){
+        alert("The maximum number of this item available for purchase is " + stockNum);
+        num = stockNum;
+    }
     const updateCartRequest = {
         quantity: num
     };
