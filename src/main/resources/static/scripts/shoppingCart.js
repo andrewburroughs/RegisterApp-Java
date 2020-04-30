@@ -104,14 +104,16 @@ function getTransactionId(){
 
 function updateQuantity() {
     const updateQuantityUrl = "/api/transactionEntry/";
-    const data =  {
-        quantity: listItem.querySelector("input[name='quantitySelect'][type='number']").value
-    };
-    ajaxPut(updateQuantityUrl, data, (callbackResponse) => {
+    const updateCartRequest = {
+        transactionId: getTransactionId(),
+        quantity: listItem.querySelector("input[name='quantitySelect'][type='number']").value;
+    }
+    ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
             window.location.replace(callbackResponse.data.redirectUrl);
         }
     });
+    calculateTotal();
     return;
 }
 
