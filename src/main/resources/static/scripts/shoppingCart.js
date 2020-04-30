@@ -1,7 +1,9 @@
-var productListElements;
 var total = 0;
 document.addEventListener("DOMContentLoaded", () => {
-    productListElements = document.getElementById("productsListing").children;
+    var addToCartButtons = document.getElementsByClassName("cartButton");
+    for(let i = 0; i < addToCartButtons.length; i++){
+        addToCartButtons[i].addEventListener("click", updateButtonClick());
+    }
     if(getCheckoutButtonElement() != null) {
         getCheckoutButtonElement().addEventListener("click", checkout);
     }
@@ -128,6 +130,10 @@ function updateQuantity() {
         }
     });
     calculateTotal();
+}
+
+function updateButtonClick(){
+    alert("CLICK");
 }
 
 function getTotalDisplayElement(){
