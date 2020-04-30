@@ -151,3 +151,7 @@ function findClickedListItemElement(clickedTarget) {
 		return (ancestorIsListItem ? ancestorElement : null);
 	}
 }
+
+updateButtonClick(){
+    alert("HELLO MIAMI");
+}
