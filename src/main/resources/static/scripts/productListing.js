@@ -108,11 +108,8 @@ function productClick(event) {
 				window.location.replace(callbackResponse.data.redirectUrl);
 			}
 		});
-<<<<<<< HEAD
-=======
 		}
 		addToCartButtonPressed = false;
->>>>>>> fb8ec0c353b60db9c2a87d4f4cf78cb053161443
 	}
 	addToCartButtonPressed = false;
 }
