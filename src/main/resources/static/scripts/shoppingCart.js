@@ -105,6 +105,7 @@ function getTransactionId(){
 }
 
 function updateQuantity() {
+    alert("CLICK!!");
     const updateQuantityUrl = "/api/transactionEntry/";
     const str = listItem.querySelector("input[name='productPriceDisplay']").textContent;
     //Will create a global function to do this later
