@@ -152,6 +152,6 @@ function findClickedListItemElement(clickedTarget) {
 	}
 }
 
-updateButtonClick(){
+function updateButtonClick(){
     alert("HELLO MIAMI");
 }
