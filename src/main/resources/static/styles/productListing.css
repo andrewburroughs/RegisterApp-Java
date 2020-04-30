@@ -56,16 +56,6 @@ a.button {
     background-color: #000000;
 }
 
-#addToCartButton:hover {
-	cursor: pointer;
-    color: #ffffff;
-    background-color: #000000;
-}
-
-#numberOfItems{
-	width: 25px;
-}
-
 .productPriceDisplay{
 	visibility: visible;
 }

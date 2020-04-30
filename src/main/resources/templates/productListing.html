@@ -23,11 +23,9 @@
 		<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
-
-		<input class="search" id="searchBar" type="text"/>
-		<button id="searchButton">Search</button>
-
-		<div class="returnToCartButton">
+		<div class="buttonWrapper">
+			<input class="search" id="searchBar" type="text"/>
+			<button id="searchButton">Search</button>
 			<button id="returnToCartButton" th:style="${transactionId} ? initial : none">Return to Cart</button>
 		</div>
 
