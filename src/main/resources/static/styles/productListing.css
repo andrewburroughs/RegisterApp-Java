@@ -47,7 +47,8 @@ a.button {
 }
 
 #returnToCartButton{
-	float: right;
+	postion: absolute;
+	right: 20px;
 }
 
 #returnToCartButton:hover {
