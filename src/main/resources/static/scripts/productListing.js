@@ -45,6 +45,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		for(let j = diff; j<3; j++){
 			newText += "0"
 		}
+		console.log(newText);
+		var comma = newText.substring(newText.length-3, newText.length-1);
+		console.log(comma);
+		var count = 0;
+		for(let k = newText.length-4; k>-1; k--){
+			if(count%3==0 && count != 0){
+				comma = newText.charAt(k) + "," + comma;
+			}
+			else{
+				comma = newText.charAt(k) + comma;
+			}
+		}
+		console.log(comma);
 		list[i].innerHTML = newText;
 	}
 });
