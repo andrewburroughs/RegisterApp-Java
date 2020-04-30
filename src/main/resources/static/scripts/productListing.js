@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			newText += "0"
 		}
 		console.log(newText);
-		var comma = newText.substring(newText.length-3, newText.length-1);
+		var comma = newText.substring(newText.length-3, newText.length);
 		console.log(comma);
 		var count = 0;
 		for(let k = newText.length-4; k>-1; k--){
@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			else{
 				comma = newText.charAt(k) + comma;
 			}
+			count++;
 		}
 		console.log(comma);
 		list[i].innerHTML = newText;
