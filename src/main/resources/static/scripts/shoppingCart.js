@@ -140,11 +140,12 @@ function getTransactionId(){
 function updateButtonClick(event) {
     let listItem = findClickedListItemElement(event.target);
     const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
-    const str = listItem.querySelector("input[name='quantitySelect']").value;
+    var str = listItem.querySelector("input[name='quantitySelect']").value;
+    var num = Number(str);
     console.log(updateQuantityUrl);
-    console.log(str);
+    console.log(num);
     const updateCartRequest = {
-        quantity: str
+        quantity: num
     };
     ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
