@@ -17,18 +17,18 @@
 		<h1 class="primary-message">Products Listing</h1>
 	</div>
 
-	<input class="search" id="searchBar" type="text"/>
-	<button id="searchButton">Search</button>
-	
-	<div class="returnToCartButton">
-		<button id="returnToCartButton" th:style="${transactionId} ? initial : none">Return to Cart</button>
-	</div>
 	<input id="transactionId" class = "hidden" th:value="${transactionId}"></div>
-	
 
 	<div id="main" class="main">
 		<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
+		</div>
+
+		<input class="search" id="searchBar" type="text"/>
+		<button id="searchButton">Search</button>
+
+		<div class="returnToCartButton">
+			<button id="returnToCartButton" th:style="${transactionId} ? initial : none">Return to Cart</button>
 		</div>
 
 		<div class="productsWrapper">
