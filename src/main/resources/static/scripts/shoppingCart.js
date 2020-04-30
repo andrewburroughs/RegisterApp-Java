@@ -126,7 +126,7 @@ function updateQuantity() {
     }
     ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
-            location.assign("/shopoingCart");
+            location.assign("/shoppingCart");
             window.location.replace(callbackResponse.data.redirectUrl);
         }
     });
