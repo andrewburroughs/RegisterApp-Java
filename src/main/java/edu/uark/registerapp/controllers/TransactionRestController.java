@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.uark.registerapp.commands.transactions.ClearCartCommand;
 import edu.uark.registerapp.commands.transactions.StartTransactionCommand;
 import edu.uark.registerapp.commands.transactions.TransactionCommitCommand;
 import edu.uark.registerapp.controllers.enums.ViewNames;
@@ -43,10 +44,24 @@ public class TransactionRestController extends BaseRestController{
         return new ApiResponse();
     }
 
+    @RequestMapping(value = "/{transactionId}", method = RequestMethod.DELETE)
+    public @ResponseBody ApiResponse clearCart(
+        @PathVariable final UUID transactionId
+    ) {
+        this.clearCartCommand
+            .setTransactionId(transactionId)
+            .execute();
+        
+        return new ApiResponse();
+    }
+
     // Properties 
     @Autowired
     private StartTransactionCommand startTransactionCommand;
 
     @Autowired
     private TransactionCommitCommand transactionCommitCommand;
+
+    @Autowired
+    private ClearCartCommand clearCartCommand;
 }

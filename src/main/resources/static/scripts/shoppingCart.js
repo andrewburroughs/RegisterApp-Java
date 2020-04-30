@@ -1,8 +1,12 @@
 var total = 0;
 document.addEventListener("DOMContentLoaded", () => {
-    var addToCartButtons = document.getElementsByClassName("updateButton");
-    for(let i = 0; i < addToCartButtons.length; i++){
-        addToCartButtons[i].addEventListener("click", updateButtonClick);
+    var updateQuantityButtons = document.getElementsByClassName("updateButton");
+    for(let i = 0; i < updateQuantityButtons.length; i++){
+        updateQuantityButtons[i].addEventListener("click", updateButtonClick);
+    }
+    var removeFromCartButtons = document.getElementsByClassName("removeButton");
+    for(let i = 0; i < removeFromCartButtons.length; i++){
+        removeFromCartButtons[i].addEventListener("click", removeItem);
     }
     if(getCheckoutButtonElement() != null) {
         getCheckoutButtonElement().addEventListener("click", checkout);
@@ -46,7 +50,7 @@ function checkout() {
 }
 
 function clearCart() {
-    var clearCartUrl = "/api/transactionEntry//" + getTransactionId();
+    var clearCartUrl = "/api/transaction/" + getTransactionId();
     ajaxDelete(clearCartUrl, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
             window.location.replace("/shoppingCart/" + getTransactionId());
@@ -58,9 +62,35 @@ function getNumUnits() {
 // TODO add details when shopping cart storage is worked out.
 }
 
-function removeItem(listItem) {
-    var removeItemUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
+function updateButtonClick(event) {
+    let listItem = findClickedListItemElement(event.target);
+    const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
+    var str = listItem.querySelector("input[name='quantitySelect']").value;
+    var num = Number(str);
+    var stock = listItem.querySelector("input[name='stock']").value;
+    var stockNum = Number(stock);
+    if(num > stockNum){
+        alert("The maximum number of this item available for purchase is " + stockNum);
+        num = stockNum;
+    }
+    if(num < 1){
+        alert("Quantity chosen is invalid");
+        num = 1;
+    }
+    const updateCartRequest = {
+        quantity: num
+    };
+    ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
+        if (isSuccessResponse(callbackResponse)) {
+            window.location.replace("/shoppingCart/" + getTransactionId());
+        }
+    });
+    calculateTotal();
+}
 
+function removeItem(event) {
+    let listItem = findClickedListItemElement(event.target);
+    const removeItemUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
     ajaxDelete(removeItemUrl, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
             window.location.replace("/shoppingCart/" + getTransactionId());
@@ -152,28 +182,6 @@ function getCancelTransactionButtonElement() {
 
 function getTransactionId(){
 	return document.getElementById("transactionId").value;
-}
-
-function updateButtonClick(event) {
-    let listItem = findClickedListItemElement(event.target);
-    const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
-    var str = listItem.querySelector("input[name='quantitySelect']").value;
-    var num = Number(str);
-    var stock = listItem.querySelector("input[name='stock']").value;
-    var stockNum = Number(stock);
-    if(num > stockNum){
-        alert("The maximum number of this item available for purchase is " + stockNum);
-        num = stockNum;
-    }
-    const updateCartRequest = {
-        quantity: num
-    };
-    ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
-        if (isSuccessResponse(callbackResponse)) {
-            window.location.replace("/shoppingCart/" + getTransactionId());
-        }
-    });
-    calculateTotal();
 }
 
 function getTotalDisplayElement(){

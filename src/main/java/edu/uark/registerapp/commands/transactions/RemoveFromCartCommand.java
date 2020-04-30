@@ -17,6 +17,7 @@ public class RemoveFromCartCommand implements VoidCommandInterface{
     @Transactional
     @Override
     public void execute() {
+        System.out.println("yee");
         final Optional<TransactionEntryEntity> transactionEntryEntity =
             this.transactionEntryRepository.findById(this.transactionEntryId);
         if(!transactionEntryEntity.isPresent()) {
