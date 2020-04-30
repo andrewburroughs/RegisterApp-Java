@@ -2,7 +2,7 @@ var total = 0;
 document.addEventListener("DOMContentLoaded", () => {
     var addToCartButtons = document.getElementsByClassName("updateButton");
     for(let i = 0; i < addToCartButtons.length; i++){
-        addToCartButtons[i].addEventListener("click", updateButtonClick());
+        addToCartButtons[i].addEventListener("click", updateButtonClick);
     }
     if(getCheckoutButtonElement() != null) {
         getCheckoutButtonElement().addEventListener("click", checkout);
