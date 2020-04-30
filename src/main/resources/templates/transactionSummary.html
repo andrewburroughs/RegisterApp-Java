@@ -8,38 +8,6 @@
 	<script type="text/javascript" src="/scripts/master.js" defer></script>
 	<script type="text/javascript" src="/scripts/transactionSummary.js" defer></script>
 
-	<script>
-
-		var quantity;
-		
-		function incrementValue(){
-		
-			quantity = parseInt(document.getElementById('number').value, 10);
-			   quantity = isNaN(quantity) ? 0 : quantity;
-			quantity++;
-			document.getElementById('number').value = quantity;
-					
-		}
-		
-		function decrementValue(){
-		
-			quantity = parseInt(document.getElementById('number').value, 10);
-			quantity = isNaN(quantity) ? 0 : quantity;
-			if(quantity > 0)
-				quantity--;
-			else
-				quantity = 0;
-			document.getElementById('number').value = quantity;
-		} 
-
-		function updatePrice(){
-
-			
-
-		}
-
-	</script>
-
 </head>
 
 <body>
@@ -55,28 +23,18 @@
 
 		<form method="post" actions="">
 
-				<b for="name">Product</b><br/>
-				<b for="name" style="margin-left: 175px">Quantity</b><br/>
-				<b for="name" style="margin-left: 175px">Price</b><br/>
-				<b for="name" style="margin-left: 175px">Total Price</b>
-				<br/><br/>
-
-
-				<ul id="productsListing" class="products">
+				<div id="productsListing" class="products">
 					<div th:each="transactionEntry : ${transactionEntries}">
 						<input type="hidden" name="productId" th:value="${transactionEntry.productId}" />
-						<span class="productLookupCodeDisplay" th:text="${transactionEntry.lookupCode}">lookupCode</span>
-						<br /><span class="productCountDisplay" th:text="${transactionEntry.quantity}">0</span>
-						<br /><span class="productPriceDisplay" th:text="${transactionEntry.price}">Price</span>
+						<b for="name">Product: </b><span class="productLookupCodeDisplay" th:text="${transactionEntry.lookupCode}">lookupCode</span><br/>
+						<b for="name">Quantity: </b><span class="productCountDisplay" th:text="${transactionEntry.quantity}">0</span><br/>
+						<b for="name">Price: </b><span class="productPriceDisplay" th:text="${transactionEntry.price}">Price</span><br/><br/>
+						
 					</div>
-				</ul>
-				<input type="button" onclick="decrementValue()" value="-" />
-				<input type="text" id="number" value="1" maxlength="1" size="1" style="text-align: center;" />
-   				<input type="button" onclick="incrementValue()" value="+" />
+				</div>
 
-				<label id="number" style="margin-left: 70px">10</label>
-				<label id="number" style="margin-left: 65px">10</label>
-				
+				<b for="name" style=>Total Price: </b><br/><span class="productPriceDisplay" th:text="${TotalPrice}">0</span><br/>
+				<b for="name" style=>Number of Products: </b><br/><span class="productNum" th:text="${ProductNum}">0</span><br/>
 
 			<div>
 			
@@ -85,7 +43,7 @@
 
 	</div>
 	
-	<div class="footer">
+	<div>
 		<button id="okayButton" type="button" class="action">Okay</button>
 	</div>
 		

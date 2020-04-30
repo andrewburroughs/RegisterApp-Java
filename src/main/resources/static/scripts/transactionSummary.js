@@ -5,27 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 });
 
-var quantity;
-		
-function incrementValue(){
-
-    quantity = parseInt(document.getElementById('number').value, 10);
-   	quantity = isNaN(quantity) ? 0 : quantity;
-	quantity++;
-	document.getElementById('number').value = quantity;
-			
-}
-
-function decrementValue(){
-
-	quantity = parseInt(document.getElementById('number').value, 10);
-	quantity = isNaN(quantity) ? 0 : quantity;
-	if(quantity > 0)
-		quantity--;
-	else
-		quantity = 0;
-	document.getElementById('number').value = quantity;
-} 
+var list = document.getElementsByClassName("productPriceDisplay");
+	for(let i = 0; i<list.length; i++){
+		var x = list[i].innerHTML;
+		var len = x.length;
+		var pos = x.indexOf(".");
+		if(pos == -1){
+			x += ".";
+			pos = x.indexOf(".");
+		}
+		var diff = len - pos;
+		var newText = "$" + x;
+		for(let j = diff; j<3; j++){
+			newText += "0"
+		}
+		list[i].innerHTML = newText;
+	}
 
 function okayButtonClickHandler() {
 
