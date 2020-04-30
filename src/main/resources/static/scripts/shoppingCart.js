@@ -85,7 +85,7 @@ function updateButtonClick(event) {
             window.location.replace("/shoppingCart/" + getTransactionId());
         }
     });
-    setTimeout(calculateTotal(), 500);
+    setTimeout(calculateTotal(), 1000);
 }
 
 function removeItem(event) {
