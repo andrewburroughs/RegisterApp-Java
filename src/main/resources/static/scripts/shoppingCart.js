@@ -106,6 +106,7 @@ function getTransactionId(){
 
 function updateQuantity() {
     alert("CLICK!!");
+    let listItem = findClickedListItemElement(event.target);
     const updateQuantityUrl = "/api/transactionEntry/";
     const str = listItem.querySelector("input[name='productPriceDisplay']").textContent;
     //Will create a global function to do this later
@@ -117,12 +118,7 @@ function updateQuantity() {
     }
     var num = Number(newStr);
     const updateCartRequest = {
-        productId: listItem.querySelector("input[name='productId'][type='hidden']").value,
-        lookupCode: listItem.querySelector("span[class='productLookupCodeDisplay']").textContent,
-        quantity: lisstItem.querySelector("span[class='quantitySelect']").value,
-        stock: listItem.querySelector("span[class='productCountDisplay']").textContent,
-        price: num,
-        createdOn: listItem.querySelector("span[class='productCreatedOnDisplay']").textContent
+        
     }
     ajaxPut(updateQuantityUrl, updateCartRequest, (callbackResponse) => {
         if (isSuccessResponse(callbackResponse)) {
@@ -131,10 +127,6 @@ function updateQuantity() {
         }
     });
     calculateTotal();
-}
-
-function updateButtonClick(){
-    alert("CLICK");
 }
 
 function getTotalDisplayElement(){
