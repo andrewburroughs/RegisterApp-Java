@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if(getContinueShoppingButtonElement() != null) {
         getContinueShoppingButtonElement().addEventListener("click", continueShopping);
     }
+    if(getCancelTransactionButtonElement() != null) {
+        getCancelTransactionButtonElement().addEventListener("click", cancelTransaction);
+    }
+
     var list = document.getElementsByClassName("productPriceDisplay");
 	for(let i = 0; i<list.length; i++){
 		var x = list[i].innerHTML;
@@ -33,8 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function checkout() {
-    location.assign("/transactionSummary/" + getTransactionId());
-    return;
+    var checkoutUrl = "/api/transaction/" + getTransactionId();
+    ajaxPut(checkoutUrl, null, (callbackResponse) => {
+        if (isSuccessResponse(callbackResponse)) {
+            window.location.assign("/transactionSummary/" + getTransactionId());
+        }
+    });
 }
 
 function clearCart() {
@@ -81,6 +89,11 @@ function findClickedListItemElement(clickedTarget) {
 
 function continueShopping() {
     location.assign("/productListing/" + getTransactionId());
+    return;
+}
+
+function cancelTransaction(){
+    location.assign("/mainMenu");
     return;
 }
 
@@ -131,6 +144,10 @@ function getClearCartButtonElement() {
 
 function getContinueShoppingButtonElement() {
     return document.getElementById("continueShoppingButton");
+}
+
+function getCancelTransactionButtonElement() {
+    return document.getElementById("cancelTransaction");
 }
 
 function getTransactionId(){
