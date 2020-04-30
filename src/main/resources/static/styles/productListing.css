@@ -69,3 +69,7 @@ a.button {
 #createButton{
 	padding-top: 10px;
 }
+
+.buttonWrapper{
+	padding-bottom: 10px;
+}
