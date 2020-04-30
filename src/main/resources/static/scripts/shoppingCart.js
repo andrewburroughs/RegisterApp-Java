@@ -139,7 +139,7 @@ function getTransactionId(){
 
 function updateButtonClick() {
     let listItem = findClickedListItemElement(event.target);
-    const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").value;
+    const updateQuantityUrl = "/api/transactionEntry/" + listItem.querySelector("input[name='transactionEntryId']").textContent;
     const str = listItem.querySelector("input[name='quantitySelect']").value;
     const updateCartRequest = {
         quantity: str
