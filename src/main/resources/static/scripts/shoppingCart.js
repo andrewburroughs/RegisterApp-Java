@@ -137,9 +137,13 @@ function getTransactionId(){
 	return document.getElementById("transactionId").value;
 }
 
+function getTransactionEntryId(){
+    return document.getElementById("transactionEntryId").value;
+}
+
 function updateButtonClick() {
     let listItem = findClickedListItemElement(event.target);
-    const updateQuantityUrl = "/api/transactionEntry/" + getTransactionId();
+    const updateQuantityUrl = "/api/transactionEntry/" + getTransactionEntryId();
     const str = listItem.querySelector("input[name='quantitySelect']").value;
     const updateCartRequest = {
         quantity: str
