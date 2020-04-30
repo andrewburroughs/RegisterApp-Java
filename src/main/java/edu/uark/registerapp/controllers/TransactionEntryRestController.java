@@ -33,11 +33,11 @@ public class TransactionEntryRestController {
     @RequestMapping(value = "/{transactionEntryId}", method = RequestMethod.PUT)
     public @ResponseBody ApiResponse updateQuantity(
         @PathVariable final UUID transactionEntryId,
-        @RequestBody final int quantity
+        @RequestBody final TransactionEntry transactionEntry
     ) {
         return this.updateCartCommand
             .setTransactionEntryId(transactionEntryId)
-            .setQuantity(quantity)
+            .setQuantity(transactionEntry.getQuantity())
             .execute();
     }
 

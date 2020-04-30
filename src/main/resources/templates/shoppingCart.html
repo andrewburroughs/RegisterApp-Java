@@ -32,8 +32,8 @@
 					<span class="productLookupCodeDisplay" th:text="${transactionEntry.lookupCode}">lookupCode</span>
 					<br /><span class="productPriceDisplay" th:text="${transactionEntry.price}">Price</span>
 					<br /><input type="number" class="quantitySelect" id="quantitySelect" name="quantitySelect" th:value="${transactionEntry.quantity}" max="${transactionEntry.stock}" />
-					<input id="updateButton" class="updateButton" type="button" value="Update Quantity" />
-					<input id="transactionEntryId" name="transactionEntryId" class="hidden" th:value="${transactionEntry.id}">
+					<input class="updateButton" type="button" value="Update Quantity" />
+					<input name="transactionEntryId" class="hidden" th:value="${transactionEntry.id}">
 				</li>
 			</ul>
 
