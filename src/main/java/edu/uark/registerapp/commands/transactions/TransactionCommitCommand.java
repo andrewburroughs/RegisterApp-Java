@@ -38,7 +38,7 @@ public class TransactionCommitCommand implements VoidCommandInterface{
             this.productRepository.save(productEntity.get());
         }
         final Optional<TransactionEntity> updateTotal = this.transactionRepository.findById(transactionId);
-        updateTotal.setTotal(total);
+        updateTotal.get().setTotal(total);
     }
 
     // Properites
