@@ -49,7 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		var count = 0;
 		for(let k = newText.length-4; k>-1; k--){
 			if(count%3==0 && count != 0){
-				comma = newText.charAt(k) + "," + comma;
+				if(newText.charAt(k) == '$'){
+					comma = newText.charAt(k) + comma;
+				}
+				else{
+					comma = newText.charAt(k) + "," + comma;
+				}
 			}
 			else{
 				comma = newText.charAt(k) + comma;
