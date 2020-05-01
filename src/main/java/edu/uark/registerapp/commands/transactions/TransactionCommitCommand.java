@@ -14,6 +14,7 @@ import edu.uark.registerapp.models.entities.ProductEntity;
 import edu.uark.registerapp.models.entities.TransactionEntryEntity;
 import edu.uark.registerapp.models.repositories.ProductRepository;
 import edu.uark.registerapp.models.repositories.TransactionEntryRepository;
+import edu.uark.registerapp.models.repositories.TransactionRepository;
 
 @Service
 public class TransactionCommitCommand implements VoidCommandInterface{
