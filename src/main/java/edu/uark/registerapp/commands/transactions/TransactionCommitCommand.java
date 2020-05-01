@@ -46,7 +46,7 @@ public class TransactionCommitCommand implements VoidCommandInterface{
     public UUID getTransactionId() {
         return this.transactionId;
     }
-    public TransactionCommitCommand setTransactionId(final UUID transactionId) {
+    public Optional<TransactionCommitCommand> setTransactionId(final UUID transactionId) {
         this.transactionId = transactionId;;
         return this;
     }
