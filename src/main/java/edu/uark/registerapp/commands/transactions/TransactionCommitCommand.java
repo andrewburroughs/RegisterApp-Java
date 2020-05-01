@@ -23,6 +23,7 @@ public class TransactionCommitCommand implements VoidCommandInterface{
     public void execute() {
         final List<TransactionEntryEntity> queriedTransactionEntryEntities =
             this.transactionEntryRepository.findByTransactionId(transactionId);
+        double total = 0;
         for (TransactionEntryEntity transactionEntryEntity : queriedTransactionEntryEntities) {
             Optional<ProductEntity> productEntity = productRepository.findById(transactionEntryEntity.getProductId());
             if (!productEntity.isPresent()) {
@@ -30,8 +31,13 @@ public class TransactionCommitCommand implements VoidCommandInterface{
             }
             productEntity.get().setCount(productEntity.get().getCount() - transactionEntryEntity.getQuantity());
 
+            double num = transactionEntryEntity.getPrice() * transactionEntryEntity.getQuantity();
+            total += num;
+
             this.productRepository.save(productEntity.get());
         }
+        final TransactionEntity updateTotal = this.transactionRepository.findById(transactionId);
+        updateTotal.setTotal(total);
     }
 
     // Properites
