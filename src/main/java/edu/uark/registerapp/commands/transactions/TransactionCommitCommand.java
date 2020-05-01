@@ -53,4 +53,7 @@ public class TransactionCommitCommand implements VoidCommandInterface{
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private TransactionRepository transactionRepository;
 }
