@@ -34,7 +34,7 @@ public class TransactionCommitCommand implements VoidCommandInterface{
             double num = transactionEntryEntity.getQuantity() * transactionEntryEntity.getPrice();
             total += num;
         }
-        final TransactionEntity updateEntity = transactionRepository.findById(transactionId);
+        final List<TransactionEntity> updateEntity = transactionRepository.findById(transactionId);
         updateEntity.setTotal(total);
     }
 
