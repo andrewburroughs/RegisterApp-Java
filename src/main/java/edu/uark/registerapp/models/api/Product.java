@@ -86,7 +86,7 @@ public class Product extends ApiResponse {
 		return this.productSales;
 	}
 
-	public double setProductSales(final double productSales){
+	public Product setProductSales(final double productSales){
 		this.productSales = productSales;
 		return this;
 	}
