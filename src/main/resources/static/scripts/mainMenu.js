@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
         getCreateEmployeeButtonElement().addEventListener("click", createEmployeeClick);
     }
     if(getSalesReportButtonElement() != null) {
-        getSalesReportButtonElement().addEventListener("click", tempDisplayError);
+        getSalesReportButtonElement().addEventListener("click", viewSalesReport);
     }
     if(getCashierReportButtonElement() != null) {
-        getCashierReportButtonElement().addEventListener("click", tempDisplayError);
+        getCashierReportButtonElement().addEventListener("click", viewCashierReport);
     }
     if(getSignOutActionElement() != null) {
         getSignOutActionElement().addEventListener("click", signOutActionClickHandler)
@@ -44,6 +44,16 @@ function viewProductsClick(event) {
 
 function createEmployeeClick(event) {
     location.assign("/employeeDetail");
+    return;
+}
+
+function viewSalesReport(event){
+    location.assign("/salesReport");
+    return;
+}
+
+function viewCashierReport(event){
+    location.assign("/cashierReport");
     return;
 }
 

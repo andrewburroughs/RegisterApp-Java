@@ -72,6 +72,30 @@ public class ProductEntity {
 		return this.createdOn;
 	}
 
+	@Column(name="quantitysold", updatable = true)
+	private int quantitySold;
+
+	public int getQuantitySold(){
+		return this.quantitySold;
+	}
+
+	public int setQuantitySold(final int quantitySold){
+		this.quantitySold = quantitySold;
+		return this;
+	}
+
+	@Column(name="productsales", updatable = true)
+	private double productSales;
+
+	public double getProductSales(){
+		return this.productSales;
+	}
+
+	public double setProductSales(final double productSales){
+		this.productSales = productSales;
+		return this;
+	}
+
 	public Product synchronize(final Product apiProduct) {
 		this.setCount(apiProduct.getCount());
 		this.setLookupCode(apiProduct.getLookupCode());
@@ -80,6 +104,8 @@ public class ProductEntity {
 		apiProduct.setId(this.getId());
 		apiProduct.setCreatedOn(this.getCreatedOn());
 
+		this.setQuantitySold(apiProduct.getQuantitySold());
+		this.setProductSales(apiProduct.getProductSales());
 		return apiProduct;
 	}
 
@@ -88,13 +114,17 @@ public class ProductEntity {
 		this.price = 0.00;
 		this.id = new UUID(0, 0);
 		this.lookupCode = StringUtils.EMPTY;
+		this.quantitySold = 0;
+		this.productSales = 0;
 	}
 
-	public ProductEntity(final String lookupCode, final int count, final double price) {
+	public ProductEntity(final String lookupCode, final int count, final double price, final int quantitySold, final double productSales) {
 		this.count = count;
 		this.price = price;
 		this.id = new UUID(0, 0);
 		this.lookupCode = lookupCode;
+		this.quantitySold = quantitySold;
+		this.productSales = productSales;
 	}
 
 	public ProductEntity(final Product apiProduct) {
@@ -102,5 +132,7 @@ public class ProductEntity {
 		this.count = apiProduct.getCount();
 		this.lookupCode = apiProduct.getLookupCode();
 		this.price = apiProduct.getPrice();
+		this.quantitySold = apiProduct.getQuantitySold();
+		this.productSales = apiProduct.getProductSales();
 	}
 }

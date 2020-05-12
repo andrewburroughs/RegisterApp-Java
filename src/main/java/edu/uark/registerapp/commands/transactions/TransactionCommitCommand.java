@@ -30,10 +30,13 @@ public class TransactionCommitCommand implements VoidCommandInterface{
             if (!productEntity.isPresent()) {
                 throw new NotFoundException("Product");
             }
+            productEntity.get().setQuantitySold(productEntity.get().getQuantitySold() + transactionEntryEntity.getQuantity());
             productEntity.get().setCount(productEntity.get().getCount() - transactionEntryEntity.getQuantity());
 
             double num = transactionEntryEntity.getPrice() * transactionEntryEntity.getQuantity();
             total += num;
+            
+            productEntity.get().setProductSales(productEntity.get().getProductSales() + num);
 
             this.productRepository.save(productEntity.get());
         }

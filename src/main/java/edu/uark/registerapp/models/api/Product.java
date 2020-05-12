@@ -69,6 +69,28 @@ public class Product extends ApiResponse {
 		return this;
 	}
 
+	private int quantitySold;
+
+	public int getQuantitySold(){
+		return this.quantitySold;
+	}
+
+	public Product setQuantitySold(final int quantitySold){
+		this.quantitySold = quantitySold;
+		return this;
+	}
+
+	private double productSales;
+
+	public double getProductSales(){
+		return this.productSales;
+	}
+
+	public double setProductSales(final double productSales){
+		this.productSales = productSales;
+		return this;
+	}
+
 	public Product() {
 		super();
 
@@ -78,6 +100,8 @@ public class Product extends ApiResponse {
 		this.price = 0.00;
 
 		this.setCreatedOn(LocalDateTime.now());
+		this.quantitySold = 0;
+		this.productSales = 0.00;
 	}
 
 	public Product(final ProductEntity productEntity) {
@@ -89,5 +113,7 @@ public class Product extends ApiResponse {
 		this.price = productEntity.getPrice();
 
 		this.setCreatedOn(productEntity.getCreatedOn());
+		this.quantitySold = productEntity.getQuantitySold();
+		this.productSales = productEntity.getProductSales();
 	}
 }
