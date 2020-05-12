@@ -79,7 +79,7 @@ public class ProductEntity {
 		return this.quantitySold;
 	}
 
-	public int setQuantitySold(final int quantitySold){
+	public ProductEntity setQuantitySold(final int quantitySold){
 		this.quantitySold = quantitySold;
 		return this;
 	}
@@ -91,7 +91,7 @@ public class ProductEntity {
 		return this.productSales;
 	}
 
-	public double setProductSales(final double productSales){
+	public ProductEntity setProductSales(final double productSales){
 		this.productSales = productSales;
 		return this;
 	}
