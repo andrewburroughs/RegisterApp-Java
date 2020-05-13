@@ -44,16 +44,16 @@ function optionRedirect(event){
     console.log(sort);
     console.log(column);
     if(sort && column){
-        location.assign("ascendingProductSales");
+        window.location.assign("ascendingProductSales");
     }
     else if(sort && !column){
-        location.assign("ascending");
+        window.location.assign("ascending");
     }
     else if(!sort && column){
-        location.assign("productSales");
+        window.location.assign("productSales");
     }
     else{
-        location.assign("");
+        window.location.assign("");
     }
 }
 function getSortElement(){
