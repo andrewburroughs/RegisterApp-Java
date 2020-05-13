@@ -35,54 +35,14 @@ public class SalesReportRouteController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/ascending")
-    public ModelAndView showAscendingQuantity(){
+    @RequestMapping(value = "/{config}", method = RequestMethod.GET)
+    public ModelAndView show(@PathVariable final String config){
         ModelAndView modelAndView = 
             new ModelAndView(ViewNames.SALES_REPORT.getViewName());
-        try{
+        try {
             modelAndView.addObject(
                 ViewModelNames.PRODUCTS.getValue(),
-                this.sortedProductsQuery.execute("quantitySold", false));
-        } catch (final Exception e) {
-            modelAndView.addObject(
-                ViewModelNames.ERROR_MESSAGE.getValue(),
-                e.getMessage());
-            modelAndView.addObject(
-                ViewModelNames.PRODUCTS.getValue(),
-                (new Product[0]));
-        }
-
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/productSales")
-    public ModelAndView showDescendingSales(){
-        ModelAndView modelAndView =
-            new ModelAndView(ViewNames.SALES_REPORT.getViewName());
-        try{
-            modelAndView.addObject(
-                ViewModelNames.PRODUCTS.getValue(),
-                this.sortedProductsQuery.execute("productSales", true));
-        } catch (final Exception e) {
-            modelAndView.addObject(
-                ViewModelNames.ERROR_MESSAGE.getValue(),
-                e.getMessage());
-            modelAndView.addObject(
-                ViewModelNames.PRODUCTS.getValue(),
-                (new Product[0]));
-        }
-
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/ascendingProductSales")
-    public ModelAndView showAscendingSales(){
-        ModelAndView modelAndView =
-            new ModelAndView(ViewNames.SALES_REPORT.getViewName());
-        try{
-            modelAndView.addObject(
-                ViewModelNames.PRODUCTS.getValue(),
-                this.sortedProductsQuery.execute("productSales", false));
+                this.sortedProductsQuery.execute(config));
         } catch (final Exception e) {
             modelAndView.addObject(
                 ViewModelNames.ERROR_MESSAGE.getValue(),

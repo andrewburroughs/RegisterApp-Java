@@ -25,9 +25,32 @@ public class SortedProductsQuery implements ResultCommandInterface<List<Product>
 		return products;
 	}
     
-	public List<Product> execute(String columnName, Boolean direction) {
+	public List<Product> execute(String config) {
 		final LinkedList<Product> products = new LinkedList<Product>();
-
+        Boolean direction;
+        String columnName;
+        switch(config){
+            case "0":
+                direction = true;
+                columnName = "quantitySold";
+                break;
+            case "1":
+                direction = false;
+                columnName = "quantitySold";
+                break;
+            case "2":
+                direction = true;
+                columnName = "productSales";
+                break;
+            case "3":
+                direction = false;
+                columnName = "productSales";
+                break;
+            default:
+                direction = true;
+                columnName = quantitySold;
+                break;
+        }
         if(direction == true){
             for (final ProductEntity productEntity : sortedProductRepository.findAll(Sort.by(Sort.Direction.DESC, columnName))) {
                 products.addLast(new Product(productEntity));
