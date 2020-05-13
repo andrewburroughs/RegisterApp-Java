@@ -49,7 +49,7 @@ public class CashierReportRouteController {
                 e.getMessage());
                 modelAndView.addObject(
                     ViewModelNames.EMPLOYEE.getValue(),
-                    new Employee[0]));
+                    (new Employee[0]));
         }
         
         return modelAndView;
