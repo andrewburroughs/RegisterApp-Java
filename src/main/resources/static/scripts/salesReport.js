@@ -43,10 +43,10 @@ function optionRedirect(event){
     if(sort && column){
         location.replace("3");
     }
-    else if(sort && !column){
+    else if(!sort && column){
         location.replace("2");
     }
-    else if(!sort && column){
+    else if(sort && !column){
         location.replace("1");
     }
     else{
