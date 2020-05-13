@@ -54,4 +54,7 @@ public class CashierReportRouteController {
         
         return modelAndView;
     }
+
+    @Autowired
+    private SortedEmployeesQuery sortedEmployeesQuery;
 }
