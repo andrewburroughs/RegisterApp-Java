@@ -21,7 +21,18 @@
             <div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
                 <h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
             </div>
+            <div class = "optionsWrapper">
+                <select id="sort" class="sort">
+                    <option id="descending">Descending</option>
+                    <option id="ascending">Ascending</option>
+                </select>
+                <select id="column" class="column">
+                    <option id="quantitySold">Quantity Sold</option>
+                    <option id="productSales">Product Sales</option>
+                </select>
+                <button class="button" id="selectButton">Select</button>
 
+            </div>
             <div class="reportWrapper">
     
                 <ul id="productsListing" class="products">
@@ -29,7 +40,7 @@
                         <input type="hidden" name="productId" th:value="${product.id}" />
                         <span class="productLookupCodeDisplay" th:text="${product.lookupCode}">lookupCode</span>
                         <br /><span class="productQuantitySold" th:text="${product.quantitySold}">Quantity Sold</span>
-                        <br /><span class="productProductSales" th:text="${product.productSales}">Product Sales</span>
+                        <br /><span class="productPriceDisplay" th:text="${product.productSales}">Product Sales</span>
                     </li>
                 </ul>
             </div>

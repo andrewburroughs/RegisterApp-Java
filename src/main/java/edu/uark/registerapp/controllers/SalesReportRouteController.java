@@ -15,8 +15,8 @@ import edu.uark.registerapp.models.api.Product;
 @Controller
 @RequestMapping(value = "/salesReport")
 public class SalesReportRouteController {
-    @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView showSalesReport(){
+    @RequestMapping(value = "/")
+    public ModelAndView showDescendingQuantity(){
         ModelAndView modelAndView = 
             new ModelAndView(ViewNames.SALES_REPORT.getViewName());
         try {
@@ -33,6 +33,57 @@ public class SalesReportRouteController {
         }
 
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/ascending")
+    public ModelAndView showAscendingQuantity(){
+        new ModelAndView(ViewNames.SALES_REPORT.getViewName());
+        try{
+            modelAndView.addObject(
+                ViewModelNames.PRODUCTS.getValue(),
+                this.sortedProductsQuery.execute("quantitySold", false));
+        } catch (final Exception e) {
+            modelAndView.addObject(
+                ViewModleNames.ERROR_MESSAGE.getValue(),
+                e.getMessage());
+            modelAndView.addObject(
+                ViewModelNames.PRODUCTS.getValue(),
+                (new Product[0]));
+        }
+    }
+
+    @RequestMapping(value = "/productSales")
+    public ModelAndView showDescendingSales(){
+        new ModelAndView(ViewNames.SALES_REPORT.getViewName());
+        try{
+            modelAndView.addObject(
+                ViewModelNames.PRODUCTS.getValue(),
+                this.sortedProductsQuery.execute("productSales", true));
+        } catch (final Exception e) {
+            modelAndView.addObject(
+                ViewModleNames.ERROR_MESSAGE.getValue(),
+                e.getMessage());
+            modelAndView.addObject(
+                ViewModelNames.PRODUCTS.getValue(),
+                (new Product[0]));
+        }
+    }
+
+    @RequestMapping(value = "/ascendingProductSales")
+    public ModelAndView showAscendingSales(){
+        new ModelAndView(ViewNames.SALES_REPORT.getViewName());
+        try{
+            modelAndView.addObject(
+                ViewModelNames.PRODUCTS.getValue(),
+                this.sortedProductsQuery.execute("productSales", false));
+        } catch (final Exception e) {
+            modelAndView.addObject(
+                ViewModleNames.ERROR_MESSAGE.getValue(),
+                e.getMessage());
+            modelAndView.addObject(
+                ViewModelNames.PRODUCTS.getValue(),
+                (new Product[0]));
+        }
     }
 
     @Autowired

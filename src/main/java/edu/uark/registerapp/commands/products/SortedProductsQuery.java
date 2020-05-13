@@ -14,8 +14,8 @@ import edu.uark.registerapp.models.repositories.SortedProductRepository;
 
 @Service
 public class SortedProductsQuery implements ResultCommandInterface<List<Product>> {
-	@Override
-	public List<Product> execute() {
+    @Override
+    public List<Product> execute() {
 		final LinkedList<Product> products = new LinkedList<Product>();
 
 		for (final ProductEntity productEntity : sortedProductRepository.findAll(Sort.by(Sort.Direction.DESC, "quantitySold"))) {
@@ -24,6 +24,24 @@ public class SortedProductsQuery implements ResultCommandInterface<List<Product>
 		
 		return products;
 	}
+    
+    @Override
+	public List<Product> execute(String columnName, Boolean direction) {
+		final LinkedList<Product> products = new LinkedList<Product>();
+
+        if(direction == true){
+            for (final ProductEntity productEntity : sortedProductRepository.findAll(Sort.by(Sort.Direction.DESC, columnName))) {
+                products.addLast(new Product(productEntity));
+            }
+        }
+        else{
+            for (final ProductEntity productEntity : sortedProductRepository.findAll(Sort.by(Sort.Direction.ASC, columnName))) {
+                products.addLast(new Product(productEntity));
+            }
+        }
+		
+		return products;
+    }
 
 	@Autowired
 	SortedProductRepository sortedProductRepository;
