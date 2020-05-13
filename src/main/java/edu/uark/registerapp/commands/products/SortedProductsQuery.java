@@ -12,12 +12,12 @@ import edu.uark.registerapp.models.entities.ProductEntity;
 import edu.uark.registerapp.models.repositories.ProductRepository;
 
 @Service
-public class ProductsQuery implements ResultCommandInterface<List<Product>> {
+public class SortedProductsQuery implements ResultCommandInterface<List<Product>> {
 	@Override
 	public List<Product> execute() {
 		final LinkedList<Product> products = new LinkedList<Product>();
 
-		for (final ProductEntity productEntity : productRepository.findAll()) {
+		for (final ProductEntity productEntity : productRepository.findAll(Sort.by(Sort.Direction.ASC, "quantitySold"))) {
 			products.addLast(new Product(productEntity));
 		}
 		
