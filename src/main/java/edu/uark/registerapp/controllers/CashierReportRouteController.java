@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.uark.registerapp.commands.employees.SortedEmployeeQuery;
+import edu.uark.registerapp.commands.employees.SortedEmployeesQuery;
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.controllers.enums.ViewNames;
 import edu.uark.registerapp.models.api.Employee;
@@ -21,7 +21,7 @@ public class CashierReportRouteController {
             new ModelAndView(ViewNames.CASHIER_REPORT.getViewName());
         try{
             modelAndView.addObject(
-                ViewModelNames.EMPLOYEEs.getValue(),
+                ViewModelNames.EMPLOYEES.getValue(),
                 this.sortedEmployeesQuery.execute());
         } catch (final Exception e){
             modelAndView.addObject(
@@ -41,7 +41,7 @@ public class CashierReportRouteController {
             new ModelAndView(ViewNames.CASHIER_REPORT.getViewName());
         try{
             modelAndView.addObject(
-                ViewModelNames.EMPLOYEEs.getValue(),
+                ViewModelNames.EMPLOYEES.getValue(),
                 this.sortedEmployeesQuery.execute(config));
         } catch (final Exception e){
             modelAndView.addObject(
