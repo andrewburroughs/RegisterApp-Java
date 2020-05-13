@@ -53,7 +53,7 @@ function viewSalesReport(event){
 }
 
 function viewCashierReport(event){
-    location.assign("/cashierReport");
+    location.assign("/cashierReport/");
     return;
 }
 

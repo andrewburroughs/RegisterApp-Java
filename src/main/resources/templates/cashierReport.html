@@ -22,14 +22,25 @@
                 <h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
             </div>
 
-            <!--
-                Highest number of sales
-                Highest gross sales
-            -->
+            <div class = "optionsWrapper">
+                <select id="sort" class="sort">
+                    <option id="descending">Descending</option>
+                    <option id="ascending">Ascending</option>
+                </select>
+                <select id="column" class="column">
+                    <option id="quantitySold">Quantity Sold</option>
+                    <option id="productSales">Product Sales</option>
+                </select>
+                <button class="button" id="selectButton">Select</button>
+
+            </div>
+            
             <div class="reportWrapper">
                 <ul id="employeesListing" class="employees">
                     <li th:each="employee : ${employees}">
-
+                        <span class="employeeId" th:text="${employee.employeeId}">Employee Id</span>
+                        <br /><span class="employeeQuantitySold" th:text="${employee.quantitySold">Quantity Sold</span>
+                        <br /><span class="productPriceDisplay" th:text="${employee.employeeSales">Employee Sales</span>
                     </li>
                 </ul>
             </div>
