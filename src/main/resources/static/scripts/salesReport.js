@@ -41,16 +41,16 @@ function optionRedirect(event){
     var sort = getSortElement().selectedIndex == 1; //If true, ascending is selected
     var column = getColumnElement().selectedIndex == 1; //If true, productSales is selected
     if(sort && column){
-        window.location.assign("ascendingProductSales");
+        location.assign("salesReport/ascendingProductSales");
     }
     else if(sort && !column){
-        window.location.assign("ascending");
+        location.assign("salesReport/ascending");
     }
     else if(!sort && column){
-        window.location.assign("productSales");
+        location.assign("salesReport/productSales");
     }
     else{
-        window.location.assign("");
+        location.assign("salesReport");
     }
 }
 
