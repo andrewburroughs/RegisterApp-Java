@@ -48,7 +48,7 @@ public class SortedProductsQuery implements ResultCommandInterface<List<Product>
                 break;
             default:
                 direction = true;
-                columnName = quantitySold;
+                columnName = "quantitySold";
                 break;
         }
         if(direction == true){
