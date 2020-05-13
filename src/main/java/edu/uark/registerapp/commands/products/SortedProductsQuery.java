@@ -10,7 +10,7 @@ import org.springframework.data.domain.Sort;
 import edu.uark.registerapp.commands.ResultCommandInterface;
 import edu.uark.registerapp.models.api.Product;
 import edu.uark.registerapp.models.entities.ProductEntity;
-import edu.uark.registerapp.models.repositories.ProductRepository;
+import edu.uark.registerapp.models.repositories.SortedProductRepository;
 
 @Service
 public class SortedProductsQuery implements ResultCommandInterface<List<Product>> {
