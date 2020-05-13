@@ -38,8 +38,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function optionRedirect(event){
-    console.log(getSortElement().innerHTML);
-    console.log(getColumnElement().innerText);
+    console.log("HELLO");
+    var sort = getSortElement().selectedIndex == 1; //If true, ascending is selected
+    var column = getColumnElement().selectedIndex == 1; //If true, productSales is selected
+    console.log(sort);
+    console.log(column);
+    if(sort && column){
+        location.assign("ascendingProductSales");
+    }
+    else if(sort && !column){
+        location.assign("ascending");
+    }
+    else if(!sort && column){
+        location.assign("productSales");
+    }
+    else{
+        location.assign("");
+    }
 }
 function getSortElement(){
     return document.getElementById("sort");
