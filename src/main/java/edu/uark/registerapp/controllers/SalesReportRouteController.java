@@ -31,6 +31,8 @@ public class SalesReportRouteController {
                 ViewModelNames.PRODUCTS.getValue(),
                 (new Product[0]));
         }
+
+        return modelAndView;
     }
 
     @Autowired
