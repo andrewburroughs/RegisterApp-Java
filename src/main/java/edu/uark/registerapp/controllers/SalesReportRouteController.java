@@ -22,7 +22,7 @@ public class SalesReportRouteController {
         try {
             modelAndView.addObject(
                 ViewModelNames.PRODUCTS.getValue(),
-                this.productsQuery.execute());
+                this.sortedProductsQuery.execute());
         } catch (final Exception e) {
             modelAndView.addObject(
                 ViewModelNames.ERROR_MESSAGE.getValue(),
@@ -36,5 +36,5 @@ public class SalesReportRouteController {
     }
 
     @Autowired
-    private ProductsQuery productsQuery;
+    private SortedProductsQuery sortedProductsQuery;
 }
