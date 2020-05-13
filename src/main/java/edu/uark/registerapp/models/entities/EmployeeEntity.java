@@ -120,6 +120,26 @@ public class EmployeeEntity {
 			public LocalDateTime getCreatedOn() {
 				return this.createdOn;
 			}
+
+	@Column(name = "quantitysold")
+			private int quantitySold;
+			public int getQuantitySold(){
+				return this.quantitySold;
+			}
+			public EmployeeEntity setQuantitySold(final int quantitySold){
+				this.quantitySold = quantitySold;
+				return this;
+			}
+
+	@Column(name = "employeesales")
+			private double employeeSales;
+			public double getEmployeeSales(){
+				return this.employeeSales;
+			}
+			public EmployeeEntity setEmployeeSales(final double employeeSales){
+				this.employeeSales = employeeSales;
+				return this;
+			}
 			
 	public Employee synchronize(final Employee apiEmployee) {
 		this.setFirstName(apiEmployee.getFirstName());

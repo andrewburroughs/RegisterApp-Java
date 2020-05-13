@@ -101,6 +101,24 @@ public class Employee extends ApiResponse {
 		return this;
 	}
 
+	private int quantitySold;
+	public int getQuantitySold() {
+		return this.quantitySold;
+	}
+	public Employee setQuantitySold(final int quantitySold){
+		this.quantitySold = quantitySold;
+		return this;
+	}
+
+	private double employeeSales;
+	public double getEmployeeSales() {
+		return this.employeeSales;
+	}
+	public Employee setEmployeeSales(final double employeeSales) {
+		this.employeeSales = employeeSales;
+		return this;
+	}
+
 	private boolean isInitialEmployee;
 	public boolean getIsInitialEmployee() {
 		return this.isInitialEmployee;
@@ -124,6 +142,8 @@ public class Employee extends ApiResponse {
 		this.employeeId = StringUtils.EMPTY;
 
 		this.setCreatedOn(LocalDateTime.now());
+		this.quantitySold = 0;
+		this.employeeSales = 0.00;
 	}
 
 	public Employee(final EmployeeEntity employeeEntity) {
@@ -141,5 +161,7 @@ public class Employee extends ApiResponse {
 			EmployeeHelper.padEmployeeId(employeeEntity.getEmployeeId());
 
 		this.setCreatedOn(employeeEntity.getCreatedOn());
+		this.quantitySold = employeeEntity.getQuantitySold();
+		this.employeeSales = employeeEntity.getEmployeeSales();
 	}
 }
