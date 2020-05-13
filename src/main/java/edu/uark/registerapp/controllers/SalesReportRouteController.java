@@ -37,7 +37,8 @@ public class SalesReportRouteController {
 
     @RequestMapping(value = "/ascending")
     public ModelAndView showAscendingQuantity(){
-        new ModelAndView(ViewNames.SALES_REPORT.getViewName());
+        ModelAndView modelAndView = 
+            new ModelAndView(ViewNames.SALES_REPORT.getViewName());
         try{
             modelAndView.addObject(
                 ViewModelNames.PRODUCTS.getValue(),
@@ -54,7 +55,8 @@ public class SalesReportRouteController {
 
     @RequestMapping(value = "/productSales")
     public ModelAndView showDescendingSales(){
-        new ModelAndView(ViewNames.SALES_REPORT.getViewName());
+        ModelAndView modelAndView =
+            new ModelAndView(ViewNames.SALES_REPORT.getViewName());
         try{
             modelAndView.addObject(
                 ViewModelNames.PRODUCTS.getValue(),
@@ -71,7 +73,8 @@ public class SalesReportRouteController {
 
     @RequestMapping(value = "/ascendingProductSales")
     public ModelAndView showAscendingSales(){
-        new ModelAndView(ViewNames.SALES_REPORT.getViewName());
+        ModelAndView modelAndView =
+            new ModelAndView(ViewNames.SALES_REPORT.getViewName());
         try{
             modelAndView.addObject(
                 ViewModelNames.PRODUCTS.getValue(),
