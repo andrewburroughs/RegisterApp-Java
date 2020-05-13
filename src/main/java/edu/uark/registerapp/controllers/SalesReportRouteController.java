@@ -51,6 +51,8 @@ public class SalesReportRouteController {
                 ViewModelNames.PRODUCTS.getValue(),
                 (new Product[0]));
         }
+
+        return modelAndView;
     }
 
     @RequestMapping(value = "/productSales")
@@ -69,6 +71,8 @@ public class SalesReportRouteController {
                 ViewModelNames.PRODUCTS.getValue(),
                 (new Product[0]));
         }
+
+        return modelAndView;
     }
 
     @RequestMapping(value = "/ascendingProductSales")
@@ -87,6 +91,8 @@ public class SalesReportRouteController {
                 ViewModelNames.PRODUCTS.getValue(),
                 (new Product[0]));
         }
+
+        return modelAndView;
     }
 
     @Autowired
