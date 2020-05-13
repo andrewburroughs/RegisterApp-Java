@@ -25,7 +25,6 @@ public class SortedProductsQuery implements ResultCommandInterface<List<Product>
 		return products;
 	}
     
-    @Override
 	public List<Product> execute(String columnName, Boolean direction) {
 		final LinkedList<Product> products = new LinkedList<Product>();
 

@@ -44,7 +44,7 @@ public class SalesReportRouteController {
                 this.sortedProductsQuery.execute("quantitySold", false));
         } catch (final Exception e) {
             modelAndView.addObject(
-                ViewModleNames.ERROR_MESSAGE.getValue(),
+                ViewModelNames.ERROR_MESSAGE.getValue(),
                 e.getMessage());
             modelAndView.addObject(
                 ViewModelNames.PRODUCTS.getValue(),
@@ -61,7 +61,7 @@ public class SalesReportRouteController {
                 this.sortedProductsQuery.execute("productSales", true));
         } catch (final Exception e) {
             modelAndView.addObject(
-                ViewModleNames.ERROR_MESSAGE.getValue(),
+                ViewModelNames.ERROR_MESSAGE.getValue(),
                 e.getMessage());
             modelAndView.addObject(
                 ViewModelNames.PRODUCTS.getValue(),
@@ -78,7 +78,7 @@ public class SalesReportRouteController {
                 this.sortedProductsQuery.execute("productSales", false));
         } catch (final Exception e) {
             modelAndView.addObject(
-                ViewModleNames.ERROR_MESSAGE.getValue(),
+                ViewModelNames.ERROR_MESSAGE.getValue(),
                 e.getMessage());
             modelAndView.addObject(
                 ViewModelNames.PRODUCTS.getValue(),
