@@ -26,7 +26,10 @@
     
                 <ul id="productsListing" class="products">
                     <li th:each="product : ${products}">
-                        
+                        <input type="hidden" name="productId" th:value="${product.id}" />
+                        <span class="productLookupCodeDisplay" th:text="${product.lookupCode}">lookupCode</span>
+                        <br /><span class="productQuantitySold" th:text="${product.quantitySold}">Quantity Sold</span>
+                        <br /><span class="productProductSales" th:text="${product.productSales}">Product Sales</span>
                     </li>
                 </ul>
             </div>
