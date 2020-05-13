@@ -18,7 +18,7 @@ public class SortedProductsQuery implements ResultCommandInterface<List<Product>
 	public List<Product> execute() {
 		final LinkedList<Product> products = new LinkedList<Product>();
 
-		for (final ProductEntity productEntity : sortedProductRepository.findAll(Sort.by(Sort.Direction.ASC, "quantitySold"))) {
+		for (final ProductEntity productEntity : sortedProductRepository.findAll(Sort.by(Sort.Direction.DESC, "quantitySold"))) {
 			products.addLast(new Product(productEntity));
 		}
 		
