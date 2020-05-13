@@ -15,7 +15,7 @@ import edu.uark.registerapp.models.api.Product;
 @Controller
 @RequestMapping(value = "/salesReport")
 public class SalesReportRouteController {
-    @RequestMapping(value = "")
+    @RequestMapping(value = "/")
     public ModelAndView showDescendingQuantity(){
         ModelAndView modelAndView = 
             new ModelAndView(ViewNames.SALES_REPORT.getViewName());

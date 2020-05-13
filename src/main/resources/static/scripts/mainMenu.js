@@ -48,7 +48,7 @@ function createEmployeeClick(event) {
 }
 
 function viewSalesReport(event){
-    location.assign("/salesReport");
+    location.assign("/salesReport/");
     return;
 }
 
