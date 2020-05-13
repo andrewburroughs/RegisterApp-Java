@@ -1,4 +1,4 @@
-document.addEventListener("DomContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     if(getSelectButtonElement() != null){
         getSelectButtonElement().addEventListener("click", optionRedirect);
     }
